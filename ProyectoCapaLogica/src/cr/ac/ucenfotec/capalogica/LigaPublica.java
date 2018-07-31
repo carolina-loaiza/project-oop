@@ -16,8 +16,6 @@ public class LigaPublica extends Liga {
     private final int[] puntajes= {100, 300, -45, 500, 100};
 
     public LigaPublica() {
-        
-        
     }
 
     public LigaPublica(String nombre, LocalDate fechaCreacion, Mundial torneo, boolean estado) {
@@ -32,11 +30,6 @@ public class LigaPublica extends Liga {
     public String toString() {
         return super.toString()+","+ puntajes;
     }
-    
-    
-    
-    
-    
     
     
 }

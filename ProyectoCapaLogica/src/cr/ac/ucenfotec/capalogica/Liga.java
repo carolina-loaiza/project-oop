@@ -6,7 +6,7 @@
 package cr.ac.ucenfotec.capalogica;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.TreeMap;
 
 /**
  *
@@ -15,11 +15,10 @@ import java.util.ArrayList;
 public class Liga {
 
     private String nombre;
-    private ArrayList<Usuario> participantes = new ArrayList<>();
+    private TreeMap<Integer, Usuario> participantes = new TreeMap<Integer, Usuario>();
     private LocalDate fechaCreacion;
     private Mundial torneo;
     private boolean estado;
-    private Usuario[] ranking = new Usuario[10];
 
     public Liga() {
     }
@@ -39,11 +38,11 @@ public class Liga {
         this.nombre = nombre;
     }
 
-    public ArrayList<Usuario> getParticipantes() {
+    public TreeMap<Integer, Usuario> getListaParticipantes() {
         return participantes;
     }
 
-    public void setParticipantes(ArrayList<Usuario> participantes) {
+    public void setListaParticipantes(TreeMap<Integer, Usuario> participantes) {
         this.participantes = participantes;
     }
 
@@ -70,20 +69,14 @@ public class Liga {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
-    public Usuario[] getRanking() {
-        return ranking;
-    }
-
-    public void setRanking(Usuario[] ranking) {
-        this.ranking = ranking;
-    }
-
     
+    public void setParticipante(Usuario participante) {
+        this.participantes.put(participante.getCodigoUsuario(), participante);
+    }
     
     @Override
     public String toString() {
-        return nombre + "," + participantes.toString() + "," + fechaCreacion + "," + torneo.toString() + "," + estado +","+ ranking.toString();
+        return nombre + "," + participantes.toString() + "," + fechaCreacion + "," + torneo.toString() + "," + estado;
     }
 
 }

@@ -11,7 +11,7 @@ import java.time.LocalDate;
  *
  * @author jeffry
  */
-public class LigaPrivada extends Liga{
+public class LigaPrivada extends Liga {
     
     private Usuario administrador;
     private int[] puntajes= {100, 300, -45, 500, 100};

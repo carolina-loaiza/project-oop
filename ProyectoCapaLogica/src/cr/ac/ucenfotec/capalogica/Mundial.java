@@ -5,6 +5,8 @@
  */
 package cr.ac.ucenfotec.capalogica;
 
+import java.util.TreeMap;
+
 /**
  *
  * @author jeffry
@@ -14,7 +16,8 @@ public class Mundial {
     private int year;
     private String pais;
     private boolean estado;
-    private Grupo[] campeonato = new Grupo[8];
+    private TreeMap<Integer, Grupo> faseGrupos = new TreeMap<Integer, Grupo>();
+    private TreeMap<Integer, Juego> listaJuegos = new TreeMap<Integer, Juego>();
 
     public Mundial() {
     }
@@ -49,17 +52,34 @@ public class Mundial {
         this.estado = estado;
     }
 
-    public Grupo[] getCampeonato() {
-        return campeonato;
+    public TreeMap<Integer, Grupo> getFaseGrupos() {
+        return faseGrupos;
     }
 
-    public void setCampeonato(Grupo[] campeonato) {
-        this.campeonato = campeonato;
+    public void setFaseGrupos(TreeMap<Integer, Grupo> grupos) {
+        this.faseGrupos = grupos;
+    }
+    
+    public void setGrupo(Grupo nuevoGrupo) {
+        this.faseGrupos.put(nuevoGrupo.getCodigoGrupo(), nuevoGrupo);
+    }
+    
+    public TreeMap<Integer, Juego> getListaJuegos() {
+        return listaJuegos;
     }
 
+    public void setListaJuegos(TreeMap<Integer, Juego> lista) {
+        this.listaJuegos = lista;
+    }
+    
+    public void setJuego(Juego nuevoJuego) {
+        this.listaJuegos.put(nuevoJuego.getCodigoJuego(), nuevoJuego);
+    }
+
+    /// Revisar faseGrupos.toString
     @Override
     public String toString() {
-        return year + "," + pais + "," + estado + "," + campeonato.toString();
+        return year + "," + pais + "," + estado + "," + faseGrupos.toString();
     }
 
     

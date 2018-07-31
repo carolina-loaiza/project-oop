@@ -13,36 +13,50 @@ import javax.swing.Icon;
  */
 public class Usuario {
     
+    private int codigoUsuario;
     private String nombre;
     private String apellidos;
     private String correo;
+    private int puntos;
     private Equipo favorito;
     private Icon avatar;
-    private String UserName;
+    private String userName;
     private String clave; //maximo 8 caracteres y minimo 6
 
     public Usuario() {
     }
+    
+    public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, String UserName, String clave) {
+        this.codigoUsuario = codigoUsuario;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.userName = UserName;
+        this.clave = clave;
+        puntos = 0;
+    }
 
-    public Usuario(String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) {
+    public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) {
+        this.codigoUsuario = codigoUsuario;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.favorito = favorito;
-        this.UserName = UserName;
+        this.userName = UserName;
         this.clave = clave;
+        puntos = 0;
     }
-    
-    
 
-    public Usuario(String nombre, String apellidos, String correo, Equipo favorito, Icon avatar, String UserName, String clave) {
+    public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, Equipo favorito, Icon avatar, String UserName, String clave) {
+        this.codigoUsuario = codigoUsuario;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.favorito = favorito;
         this.avatar = avatar;
-        this.UserName = UserName;
+        this.userName = UserName;
         this.clave = clave;
+        puntos = 0;
     }
 
     public String getNombre() {
@@ -86,11 +100,19 @@ public class Usuario {
     }
 
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public void setUserName(String UserName) {
-        this.UserName = UserName;
+        this.userName = UserName;
+    }
+
+    public int getCodigoUsuario() {
+        return codigoUsuario;
+    }
+
+    public void setCodigoUsuario(int codigoUsuario) {
+        this.codigoUsuario = codigoUsuario;
     }
 
     public String getClave() {
@@ -101,13 +123,18 @@ public class Usuario {
         this.clave = clave;
     }
 
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+
     @Override
     public String toString() {
-        return nombre + "," + apellidos + "," + correo + "," + favorito + "," + avatar + "," + UserName + "," + clave;
+        return nombre + "," + apellidos + "," + correo + "," + favorito + "," + avatar + "," + userName + "," + clave;
     }
-    
-    
-    
     
     
 }

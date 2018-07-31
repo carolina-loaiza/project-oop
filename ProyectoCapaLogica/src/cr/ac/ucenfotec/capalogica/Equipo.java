@@ -14,7 +14,8 @@ import javax.swing.ImageIcon;
  */
 public class Equipo {
     
-    private int codigoPais;
+    private int codigoEquipo;
+    private String codigoPais;
     private String nombrePais;
     private int ranking;
     //private ImageIcon bandera;
@@ -22,17 +23,18 @@ public class Equipo {
     public Equipo() {
     }
 
-    public Equipo(int codigoPais, String nombrePais, int ranking) {
+    public Equipo(int codigoEquipo, String codigoPais, String nombrePais, int ranking) {
+        this.codigoEquipo = codigoEquipo;
         this.codigoPais = codigoPais;
         this.nombrePais = nombrePais;
         this.ranking = ranking;
     }
 
-    public int getCodigoPais() {
+    public String getCodigoPais() {
         return codigoPais;
     }
 
-    public void setCodigoPais(int codigoPais) {
+    public void setCodigoPais(String codigoPais) {
         this.codigoPais = codigoPais;
     }
 
@@ -50,6 +52,14 @@ public class Equipo {
 
     public void setRanking(int ranking) {
         this.ranking = ranking;
+    }
+    
+    public int getCodigoEquipo() {
+        return codigoEquipo;
+    }
+
+    public void setCodigoEquipo(int codigoEquipo) {
+        this.codigoEquipo = codigoEquipo;
     }
 
     @Override
