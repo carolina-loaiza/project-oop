@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Juego {
     
+    private int codigoJuego;
     private Equipo primero;
     private Equipo segundo;
     private Date fecha;
@@ -22,7 +23,8 @@ public class Juego {
     public Juego() {
     }
 
-    public Juego(Equipo primero, Equipo segundo, Date fecha) {
+    public Juego(int codigoJuego, Equipo primero, Equipo segundo, Date fecha) {
+        this.codigoJuego = codigoJuego;
         this.primero = primero;
         this.segundo = segundo;
         this.fecha = fecha;
@@ -66,6 +68,14 @@ public class Juego {
 
     public void setMarcador(String marcador) {
         this.marcador = marcador;
+    }
+    
+    public int getCodigoJuego() {
+        return codigoJuego;
+    }
+
+    public void setCodigoJuego(int codigoJuego) {
+        this.codigoJuego = codigoJuego;
     }
 
     @Override

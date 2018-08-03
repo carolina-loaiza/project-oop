@@ -14,8 +14,18 @@ import java.util.ArrayList;
  */
 public class CapaLogica {
 
+    String[] usuarioSesion = new String[9];
+
     public CapaLogica() {
 
+    }
+    public void setSesion(Usuario nuevo){
+        usuarioSesion = nuevo.toString().split(",");
+    
+    }
+
+    public String[] getSesion() {
+        return usuarioSesion;
     }
 
     public boolean registrarUsuario(Usuario nuevo) throws IOException {
@@ -48,6 +58,20 @@ public class CapaLogica {
         return existe;
     }
 
+    public String[] listarUsuarios() throws IOException {
+        Persistencia archivo = new Persistencia("usuarios.txt");
+        ArrayList<String> lista = archivo.getData();
+        String[] usuarios = new String[lista.size()];
+
+        int cont = 0;
+        for (String i : lista) {
+            usuarios[cont] = i;
+            cont++;
+        }
+
+        return usuarios;
+    }
+
     public boolean iniciarSesion(String userName, String clave) throws IOException {
         boolean sesionIniciada = true;
 
@@ -59,6 +83,7 @@ public class CapaLogica {
         for (String i : listaUsuarios) {
             datosUsuario = i.split(",");
             if (userName.equals(datosUsuario[5]) && clave.equals(datosUsuario[6])) {
+                usuarioSesion = datosUsuario;
                 sesionIniciada = true;
             }
         }
@@ -83,10 +108,10 @@ public class CapaLogica {
         Persistencia archivo = new Persistencia("mundiales.txt");
         ArrayList<String> lista = archivo.getData();
         String[] mundiales = new String[lista.size()];
-        
+
         int cont = 0;
         for (String i : lista) {
-            mundiales[cont]=i;
+            mundiales[cont] = i;
             cont++;
         }
 
@@ -137,11 +162,25 @@ public class CapaLogica {
         return existe;
     }
 
+    public String[] listarGrupos() throws IOException {
+        Persistencia archivo = new Persistencia("grupos.txt");
+        ArrayList<String> lista = archivo.getData();
+        String[] grupos = new String[lista.size()];
+
+        int cont = 0;
+        for (String i : lista) {
+            grupos[cont] = i;
+            cont++;
+        }
+
+        return grupos;
+    }
+
     public boolean registrarEquipo(Equipo seleccion) throws IOException {
         boolean registrado = true;
         Persistencia archivo = new Persistencia("equipos.txt");
-        
-        if (existeEquipo(Integer.toString(seleccion.getCodigoPais()))) {
+
+        if (existeEquipo(seleccion.getCodigoPais())) {
             registrado = false;
         } else {
             archivo.setData(seleccion.toString());
@@ -221,4 +260,64 @@ public class CapaLogica {
         return existe;
     }
 
+    public boolean existeNombreUsuario(String user) throws IOException {
+        Persistencia archivo = new Persistencia("usuarios.txt");
+        boolean existe = false;
+        ArrayList<String> listaUsuarios = archivo.getData();
+        String[] usuario;
+
+        for (String i : listaUsuarios) {
+            usuario = i.split(",");
+            if (user.equals(usuario[5])) {
+                existe = true;
+            }
+        }
+
+        return existe;
+    }
+
+    public String buscarCodigoEquipo(String nombre) throws IOException {
+        String codigo = "";
+        Persistencia archivo = new Persistencia("equipos.txt");
+        ArrayList<String> listaEquipos = archivo.getData();
+        String[] seleccion;
+
+        for (String i : listaEquipos) {
+            seleccion = i.split(",");
+            if (nombre.equals(seleccion[1])) {
+                codigo = seleccion[0];
+            }
+        }
+        return codigo;
+
+    }
+
+    public Equipo buscarEquipoPorCodigo(String codigo) throws IOException {
+        Equipo nuevo = null;
+        Persistencia archivo = new Persistencia("equipos.txt");
+        ArrayList<String> listaEquipos = archivo.getData();
+        String[] seleccion;
+
+        for (String i : listaEquipos) {
+            seleccion = i.split(",");
+            if (codigo.equals(seleccion[0])) {
+                nuevo = new Equipo(seleccion[0], seleccion[1], Integer.parseInt(seleccion[2]));
+            }
+        }
+        return nuevo;
+
+    }
+
+    public String[] listaEquipos() throws IOException {
+        Persistencia archivo = new Persistencia("equipos.txt");
+        ArrayList<String> lista = archivo.getData();
+        String[] selecciones = new String[lista.size()];
+        int cont = 0;
+        for (String i : lista) {
+            selecciones[cont] = i;
+            cont++;
+        }
+        
+        return selecciones;
+    }
 }

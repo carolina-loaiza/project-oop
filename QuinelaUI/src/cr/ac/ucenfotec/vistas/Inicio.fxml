@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane fx:id="Inicio" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.ucenfotec.controlador.InicioController">
+   <children>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="373.0" prefWidth="198.0">
+         <children>
+            <Label layoutX="66.0" layoutY="27.0" text="Inicio Sesión" />
+            <Label layoutX="25.0" layoutY="70.0" text="Usuario" />
+            <TextField fx:id="txtUsuario" layoutX="25.0" layoutY="87.0" />
+            <Label layoutX="25.0" layoutY="119.0" text="Contraseña" />
+            <PasswordField fx:id="txtPass" layoutX="25.0" layoutY="136.0" />
+            <Button fx:id="btnIngresar" layoutX="25.0" layoutY="177.0" mnemonicParsing="false" onAction="#inicioSesión" prefHeight="25.0" prefWidth="149.0" text="Ingresar" />
+            <Hyperlink fx:id="lnkRegistro" layoutX="126.0" layoutY="212.0" onMouseClicked="#registrarUsuario" text="Registrarse" />
+            <Label layoutX="14.0" layoutY="215.0" text="No tengo una cuenta" />
+         </children>
+      </Pane>
+      <Separator layoutX="213.0" layoutY="14.0" orientation="VERTICAL" prefHeight="373.0" prefWidth="2.0" style="-fx-pref-width: 2px;" />
+      <ImageView fx:id="imgInicio" fitHeight="373.0" fitWidth="376.0" layoutX="219.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagen/rightfield.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

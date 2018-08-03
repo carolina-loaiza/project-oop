@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="MenuPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.ucenfotec.controlador.MenuController">
+   <children>
+      <Pane layoutX="488.0" layoutY="14.0" prefHeight="101.0" prefWidth="98.0" style="-fx-border-color: gray; -fx-border-radius: 70;">
+         <children>
+            <ImageView fx:id="picUsuario" fitHeight="101.0" fitWidth="98.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Label fx:id="txtUserName" alignment="CENTER" contentDisplay="CENTER" layoutX="499.0" layoutY="123.0" prefHeight="31.0" prefWidth="77.0" text="UserName" />
+      <Pane fx:id="menuAdmin" layoutX="14.0" layoutY="15.0" prefHeight="200.0" prefWidth="200.0" visible="false">
+         <children>
+            <MenuButton fx:id="menu" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Menu">
+              <items>
+                  <Menu fx:id="menuEquipos" mnemonicParsing="false" text="Equipos">
+                    <items>
+                      <MenuItem fx:id="registroEquipos" mnemonicParsing="false" onAction="#registrarEquipos" text="Registrar Equipos" />
+                      <MenuItem fx:id="listaEquipos" mnemonicParsing="false" onAction="#listarEquipos" text="Listar Equipos" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Grupos">
+                    <items>
+                        <MenuItem fx:id="registrGrupos" mnemonicParsing="false" onAction="#registrarGrupo" text="Registrar Grupos" />
+                      <MenuItem fx:id="listaMundial" mnemonicParsing="false" onAction="#listarMundiales" text="Listar Mundiales" />
+                    </items>
+                  </Menu>
+                  <MenuItem fx:id="rankingFifa" mnemonicParsing="false" onAction="#mostrarRanking" text="Ranking Fifa" />
+                  <MenuItem fx:id="muestraCronograma" mnemonicParsing="false" onAction="#mostrarCronogramaMundial" text="Cronograma Partidos" />
+                  <Menu mnemonicParsing="false" text="Ligas">
+                    <items>
+                        <MenuItem fx:id="publica" mnemonicParsing="false" onAction="#ligaPublica" text="Ligas Publicas" />
+                      <MenuItem fx:id="privadas" mnemonicParsing="false" onAction="#ligaPrivada" text="Ligas Privadas" />
+                    </items>
+                  </Menu>
+                  <MenuItem fx:id="marcadores" mnemonicParsing="false" onAction="#ingresarMarcadores" text="Ingresar Marcadores" />
+                  <MenuItem fx:id="cerrarSesionAdmin" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar Sesión" />
+              </items>
+            </MenuButton>
+         </children>
+      </Pane>
+      <ImageView fitHeight="165.0" fitWidth="512.0" layoutX="14.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagen/cancha.jpg" />
+         </image>
+      </ImageView>
+      <Pane fx:id="menuUsuario" layoutX="14.0" layoutY="10.0" prefHeight="200.0" prefWidth="466.0">
+         <children>
+            <Pane fx:id="ligasPublicas" layoutX="14.0" layoutY="52.0" onDragDetected="#ligasPublicas" prefHeight="116.0" prefWidth="116.0" style="-fx-border-color: blue; -fx-border-radius: 90;">
+               <children>
+                  <Label layoutX="19.0" layoutY="50.0" text="Ligas Publicas" textFill="#1a00ff">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane fx:id="ligasPrivadas" layoutX="175.0" layoutY="52.0" onDragDetected="#ligasPrivadas" prefHeight="116.0" prefWidth="116.0" style="-fx-border-color: green; -fx-border-radius: 90;">
+               <children>
+                  <Label layoutX="21.0" layoutY="50.0" text="Ligas Privadas" textFill="#008a12">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane fx:id="cerrarSesion" layoutX="336.0" layoutY="52.0" onMouseClicked="#cerrarSesion" prefHeight="116.0" prefWidth="116.0" style="-fx-border-color: red; -fx-border-radius: 90;">
+               <children>
+                  <Label layoutX="21.0" layoutY="50.0" text="Cerrar Sesión" textFill="#ff1f0b">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+         </children>
+      </Pane>
+      <Label fx:id="txtPuntaje" alignment="CENTER" layoutX="499.0" layoutY="154.0" prefHeight="17.0" prefWidth="77.0" text="Puntaje" />
+   </children>
+</AnchorPane>

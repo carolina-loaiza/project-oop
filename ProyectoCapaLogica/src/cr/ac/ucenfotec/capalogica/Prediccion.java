@@ -11,6 +11,7 @@ package cr.ac.ucenfotec.capalogica;
  */
 public class Prediccion {
     
+    private int codigoPrediccion;
     private Usuario jugador;
     private Juego partido;
     private Equipo prediccionGanador;
@@ -19,11 +20,12 @@ public class Prediccion {
     public Prediccion() {
     }
 
-    public Prediccion(Usuario jugador, Juego partido, Equipo prediccionGanador, String prediccionMarcador) {
+    public Prediccion(int codigoPrediccion, Usuario jugador, Juego partido, Equipo prediccionGanador, String prediccionMarcador) {
         this.jugador = jugador;
         this.partido = partido;
         this.prediccionGanador = prediccionGanador;
         this.prediccionMarcador = prediccionMarcador;
+        this.codigoPrediccion = codigoPrediccion;
     }
 
     public Usuario getJugador() {
@@ -56,6 +58,14 @@ public class Prediccion {
 
     public void setPrediccionMarcador(String prediccionMarcador) {
         this.prediccionMarcador = prediccionMarcador;
+    }
+    
+    public int getCodigoPrediccion() {
+        return codigoPrediccion;
+    }
+
+    public void setCodigoPrediccion(int codigoPrediccion) {
+        this.codigoPrediccion = codigoPrediccion;
     }
 
     @Override

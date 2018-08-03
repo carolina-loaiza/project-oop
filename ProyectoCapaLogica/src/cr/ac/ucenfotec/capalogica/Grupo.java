@@ -5,6 +5,8 @@
  */
 package cr.ac.ucenfotec.capalogica;
 
+import java.util.TreeMap;
+
 /**
  *
  * @author jeffry
@@ -13,14 +15,15 @@ public class Grupo {
 
     private int codigoGrupo;
     private char nombre;
-    private Equipo[] equipos = new Equipo[4];
+    private TreeMap<Integer, Equipo> equipos = new TreeMap<Integer, Equipo>();
 
     public Grupo() {
     }
 
-    public Grupo(int codigoGrupo, char nombre) {
+    public Grupo(int codigoGrupo, char nombre, TreeMap<Integer, Equipo> equipos) {
         this.codigoGrupo = codigoGrupo;
         this.nombre = nombre;
+        this.equipos = equipos;
     }
 
     public int getCodigoGrupo() {
@@ -39,18 +42,19 @@ public class Grupo {
         this.nombre = nombre;
     }
 
-    public Equipo[] getEquipos() {
+    public TreeMap<Integer, Equipo> getEquipos() {
         return equipos;
     }
 
-    public void setEquipos(Equipo[] equipos) {
+    public void setEquipos(TreeMap<Integer, Equipo> equipos) {
         this.equipos = equipos;
     }
 
-    public void setUnEquipo(Equipo nuevo, int posicion) {
-        this.equipos[posicion] = nuevo;
+    public void setUnEquipo(Equipo equipoNuevo) {
+        this.equipos.put(equipoNuevo.getCodigoEquipo(), equipoNuevo);
     }
-
+    
+    /// Revisar equipos.toString
     @Override
     public String toString() {
         return codigoGrupo + "," + nombre + "," + equipos.toString();
