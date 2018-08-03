@@ -14,16 +14,26 @@ import java.util.TreeMap;
 public class Grupo {
 
     private int codigoGrupo;
+    private int codigoMuldial;
     private char nombre;
     private TreeMap<Integer, Equipo> equipos = new TreeMap<Integer, Equipo>();
 
     public Grupo() {
     }
 
-    public Grupo(int codigoGrupo, char nombre, TreeMap<Integer, Equipo> equipos) {
+    public Grupo(int codigoMuldial, int codigoGrupo, char nombre, TreeMap<Integer, Equipo> equipos) {
         this.codigoGrupo = codigoGrupo;
         this.nombre = nombre;
         this.equipos = equipos;
+        this.codigoMuldial = codigoMuldial;
+    }
+
+    public int getCodigoMuldial() {
+        return codigoMuldial;
+    }
+
+    public void setCodigoMuldial(int codigoMuldial) {
+        this.codigoMuldial = codigoMuldial;
     }
 
     public int getCodigoGrupo() {

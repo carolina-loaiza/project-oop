@@ -19,24 +19,40 @@ public class Usuario {
     private String correo;
     private int puntos;
     private Equipo favorito;
-    private Icon avatar;
+    private String avatar;
     private String userName;
     private String clave; //maximo 8 caracteres y minimo 6
+    private int tipoUsuario;
 
     public Usuario() {
     }
     
-    public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, String UserName, String clave) {
+    // Constructor without codigoUsuario;
+    public Usuario(int tipoUsuario, String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) {
         this.codigoUsuario = codigoUsuario;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
         this.userName = UserName;
         this.clave = clave;
+        this.tipoUsuario = tipoUsuario;
         puntos = 0;
     }
-
-    public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) {
+    
+    // Constructor without favorito;
+    public Usuario(int tipoUsuario, int codigoUsuario, String nombre, String apellidos, String correo, String UserName, String clave) {
+        this.codigoUsuario = codigoUsuario;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.userName = UserName;
+        this.clave = clave;
+        this.tipoUsuario = tipoUsuario;
+        puntos = 0;
+    }
+    
+    // Constructor complete 
+    public Usuario(int tipoUsuario, int codigoUsuario, String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) {
         this.codigoUsuario = codigoUsuario;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -44,18 +60,7 @@ public class Usuario {
         this.favorito = favorito;
         this.userName = UserName;
         this.clave = clave;
-        puntos = 0;
-    }
-
-    public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, Equipo favorito, Icon avatar, String UserName, String clave) {
-        this.codigoUsuario = codigoUsuario;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.correo = correo;
-        this.favorito = favorito;
-        this.avatar = avatar;
-        this.userName = UserName;
-        this.clave = clave;
+        this.tipoUsuario = tipoUsuario;
         puntos = 0;
     }
 
@@ -91,11 +96,11 @@ public class Usuario {
         this.favorito = favorito;
     }
 
-    public Icon getAvatar() {
+    public String getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Icon avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 

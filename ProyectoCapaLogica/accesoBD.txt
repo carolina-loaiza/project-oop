@@ -1,0 +1,4 @@
+Driver:
+com.mysql.jdbc.Driver
+URL:
+jdbc:mysql://localhost:8889/proyecto_quiniela?user=root&password=root

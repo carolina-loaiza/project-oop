@@ -15,15 +15,29 @@ import cr.ac.ucenfotec.multi.MultiUsuario;
  */
 
 public class GestorUsuario {
-    public static boolean clienteAgregar(int codigoUsuario, String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) throws Exception {
+    public static boolean clienteAgregar(int tipoUsuario, String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) throws Exception {
         Usuario nuevoUsuario;
-        nuevoUsuario = (new MultiUsuario()).buscarByCodigo(codigoUsuario);
+        nuevoUsuario = (new MultiUsuario()).buscarByCorreo(correo);
 
         if (nuevoUsuario != null) {
             return false;
         };
         
-        nuevoUsuario = (new MultiUsuario()).crear(codigoUsuario, nombre, apellidos, correo, favorito, UserName, clave);
+        nuevoUsuario = (new MultiUsuario()).crear(tipoUsuario, nombre, apellidos, correo, favorito, UserName, clave);
         return true;
+    }
+
+    public static Usuario usuarioBuscar(String correo) throws Exception {
+        Usuario usuario;
+        usuario = (new MultiUsuario()).buscarByCorreo(correo);
+
+        return usuario;
+    }
+
+    public static Usuario usuarioLogin(String userName, String clave) throws Exception {
+        Usuario usuario;
+        usuario = (new MultiUsuario()).login(userName, clave);
+
+        return usuario;
     }
 }

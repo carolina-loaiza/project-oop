@@ -7,7 +7,7 @@
 package cr.ac.ucenfotec.multi;
 
 import cr.ac.ucenfotec.capalogica.*;
-import cr.ac.ucenfotec.multi.JDBC;
+import cr.ac.ucenfotec.multi.Conector;
 import java.sql.ResultSet;
 
 /**
@@ -17,16 +17,15 @@ import java.sql.ResultSet;
 
 public class MultiUsuario {
     
-    public static Usuario crear (int codigoUsuario, String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) throws Exception {
+    public static Usuario crear (int tipoUsuario, String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) throws Exception {
         Usuario nuevoUsuario = null;
-        int rs;
         String sql;
-	sql = "INSERT INTO Usuarios (codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave) "+
-              "VALUES ('"+codigoUsuario+"', '"+nombre+"', '"+apellidos+"', '"+correo+"', 0, "+favorito.getCodigoEquipo()+", '"+UserName+"', '"+clave+"');";
+	sql = "INSERT INTO Usuarios (tipoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave) "+
+              "VALUES ('"+tipoUsuario+"', '"+nombre+"', '"+apellidos+"', '"+correo+"', 0, "+favorito.getCodigoEquipo()+", '"+UserName+"', '"+clave+"');";
 
         try {
-            rs = JDBC.executeUpdate(sql);
-            nuevoUsuario = new Usuario(codigoUsuario, nombre, apellidos, correo, favorito, UserName, clave);
+            Conector.getConector().ejecutarSQL(sql);
+            nuevoUsuario = new Usuario(tipoUsuario, nombre, apellidos, correo, favorito, UserName, clave);
 	}catch (Exception e) {
             throw new Exception ("El n�mero de identificaci�n ya est� en el sistema.");
 	}
@@ -34,19 +33,20 @@ public class MultiUsuario {
         return nuevoUsuario;
     }
     
-    public Usuario buscarByCodigo(int codigoUsuario) throws java.sql.SQLException,Exception{
+    public Usuario buscarByCorreo(String correo) throws java.sql.SQLException,Exception{
 	Usuario usuario = null;
         Equipo equipo = null;
 	java.sql.ResultSet rs;
 	String sql;
-        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, codigoEquipo, codigoPais, nombrePais, ranking "+
+        sql = "SELECT tipoUsuario, codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, codigoEquipo, codigoPais, nombrePais, ranking "+
               "FROM Usuarios, Equipos "+
-              "WHERE codigoUsuario='"+ codigoUsuario +"'"+
+              "WHERE correo='"+ correo +"'"+
               "AND favorito = Equipos.codigoEquipo;";
-	rs = JDBC.executeQuery(sql);
+	rs = Conector.getConector().ejecutarSQL(sql, true);
 
         if (rs != null && rs.next()) {
             usuario = new Usuario(
+                    rs.getInt("tipoUsuario"),
                     rs.getInt("codigoUsuario"),
                     rs.getString("nombre"),
                     rs.getString("apellidos"),
@@ -71,14 +71,15 @@ public class MultiUsuario {
         Equipo equipo = null;
 	java.sql.ResultSet rs;
 	String sql;
-        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, codigoEquipo, codigoPais, nombrePais, ranking "+
+        sql = "SELECT tipoUsuario codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, codigoEquipo, codigoPais, nombrePais, ranking "+
               "FROM Usuarios, Equipos "+
               "WHERE userName ='"+ userName +"' AND clave='"+ clave +"'"+
               "AND favorito = Equipos.codigoEquipo;";
-	rs = JDBC.executeQuery(sql);
+	rs = Conector.getConector().ejecutarSQL(sql, true);
 
         if (rs != null && rs.next()) {
             usuario = new Usuario(
+                    rs.getInt("tipoUsuario"),
                     rs.getInt("codigoUsuario"),
                     rs.getString("nombre"),
                     rs.getString("apellidos"),

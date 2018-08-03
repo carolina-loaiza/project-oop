@@ -18,9 +18,15 @@ public class Equipo {
     private String codigoPais;
     private String nombrePais;
     private int ranking;
-    //private ImageIcon bandera;
+    private String bandera;
 
     public Equipo() {
+    }
+    
+    public Equipo(String codigoPais, String nombrePais, int ranking) {
+        this.codigoPais = codigoPais;
+        this.nombrePais = nombrePais;
+        this.ranking = ranking;
     }
 
     public Equipo(int codigoEquipo, String codigoPais, String nombrePais, int ranking) {
@@ -28,6 +34,14 @@ public class Equipo {
         this.codigoPais = codigoPais;
         this.nombrePais = nombrePais;
         this.ranking = ranking;
+    }
+
+    public String getBandera() {
+        return bandera;
+    }
+
+    public void setBandera(String bandera) {
+        this.bandera = bandera;
     }
 
     public String getCodigoPais() {

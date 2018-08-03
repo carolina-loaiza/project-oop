@@ -7,7 +7,7 @@
 package cr.ac.ucenfotec.multi;
 
 import cr.ac.ucenfotec.capalogica.*;
-import cr.ac.ucenfotec.multi.JDBC;
+import cr.ac.ucenfotec.multi.Conector;
 import java.sql.ResultSet;
 
 /**
@@ -17,16 +17,15 @@ import java.sql.ResultSet;
 
 public class MultiEquipo {
     
-    public static Equipo crear (int codigoEquipo, String codigoPais, String nombrePais, int ranking) throws Exception{
+    public static Equipo crear (String codigoPais, String nombrePais, int ranking) throws Exception{
         Equipo equipo = null;
-        int rs = 0;
         String sql;
-        sql = "INSERT INTO Equipos (codigoEquipo, codigoPais, nombrePais, ranking) "+
-            "VALUES ('"+codigoEquipo+"', '"+codigoPais+"', '"+nombrePais+"', '"+ranking+"');";
+        sql = "INSERT INTO Equipos (codigoPais, nombrePais, ranking) "+
+            "VALUES ('"+codigoPais+"', '"+nombrePais+"', '"+ranking+"');";
 
         try {
-            rs = JDBC.executeUpdate(sql);
-            equipo = new Equipo(codigoEquipo, codigoPais, nombrePais, ranking);
+            Conector.getConector().ejecutarSQL(sql);
+            equipo = new Equipo(codigoPais, nombrePais, ranking);
         } catch (Exception e) {
             throw new Exception ("El n�mero de identificaci�n ya est� en el sistema.");
         }
@@ -34,14 +33,14 @@ public class MultiEquipo {
         return equipo;
     }   
     
-    public Equipo buscarByCodigo(int codigoEquipo) throws java.sql.SQLException,Exception{
+    public Equipo buscarByCodigo(String codigoPais) throws java.sql.SQLException,Exception{
         Equipo equipo = null;
 	java.sql.ResultSet rs;
 	String sql;
 	sql = "SELECT codigoEquipo, codigoPais, nombrePais, ranking"+
               "FROM Equipos "+
-              "WHERE codigoEquipo='"+ codigoEquipo +"';";
-	rs = JDBC.executeQuery(sql);
+              "WHERE codigoPais='"+ codigoPais +"';";
+	rs = Conector.getConector().ejecutarSQL(sql, true);
         
         if (rs.next()) {
             equipo = new Equipo(
@@ -52,7 +51,7 @@ public class MultiEquipo {
         } else {
             throw new Exception ("El cliente no est� registrado.");
 	}
-                
+              
 	rs.close();
 	return equipo;
     }
