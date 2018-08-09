@@ -23,7 +23,7 @@ public class MultiUsuario {
                 + "VALUES ('" + nombre + "', '" + apellidos + "', '" + correo + "'," + 100 + ", " + favorito.getCodigoEquipo() + ", '" + UserName + "', '" + clave + "', " + 1 + ");";
 
         try {
-            rs = Conector.getConector().ejecutarSQL(sql, 0);
+            Conector.getConector().ejecutarSQL(sql);
             nuevoUsuario = new Usuario(nombre, apellidos, correo, 100, favorito, UserName, clave);
         } catch (Exception e) {
             throw new Exception("El n�mero de identificaci�n ya est� en el sistema.");
