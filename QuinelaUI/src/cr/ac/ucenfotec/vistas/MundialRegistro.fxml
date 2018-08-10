@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="cr.ac.ucenfotec.controlador.MundialRegistroController">
+    <stylesheets>
+        <URL value="@/cr/ac/ucenfotec/estilo/mundialregistro.css" />
+    </stylesheets>
+   <children>
+      <Pane layoutX="58.0" layoutY="20.0" prefHeight="361.0" prefWidth="485.0">
+         <children>
+            <Label layoutX="192.0" layoutY="14.0" text="Registro Mundiales" />
+            <Label layoutX="56.0" layoutY="44.0" text="Año" />
+            <Label layoutX="283.0" layoutY="44.0" text="Pais" />
+            <Label layoutX="56.0" layoutY="105.0" text="Grupo 1" />
+            <Label layoutX="281.0" layoutY="105.0" text="Grupo 2" />
+            <Label layoutX="56.0" layoutY="156.0" text="Grupo 3" />
+            <Label layoutX="281.0" layoutY="156.0" text="Grupo 4" />
+            <Label layoutX="56.0" layoutY="208.0" text="Grupo 5" />
+            <Label layoutX="281.0" layoutY="208.0" text="Grupo 6" />
+            <Label layoutX="56.0" layoutY="260.0" text="Grupo 7" />
+            <Label layoutX="281.0" layoutY="260.0" text="Grupo 8" />
+            <TextField fx:id="txtAnno" layoutX="56.0" layoutY="61.0" />
+            <TextField fx:id="txtPais" layoutX="282.0" layoutY="61.0" />
+            <ComboBox fx:id="sltGrupo1" layoutX="55.0" layoutY="122.0" prefWidth="150.0" />
+            <ComboBox fx:id="sltGrupo2" layoutX="281.0" layoutY="122.0" prefWidth="150.0" />
+            <ComboBox fx:id="sltGrupo3" layoutX="55.0" layoutY="173.0" prefWidth="150.0" />
+            <ComboBox fx:id="sltGrupo4" layoutX="281.0" layoutY="173.0" prefWidth="150.0" />
+            <ComboBox fx:id="sltGrupo5" layoutX="55.0" layoutY="225.0" prefWidth="150.0" />
+            <ComboBox fx:id="sltGrupo6" layoutX="281.0" layoutY="225.0" prefWidth="150.0" />
+            <ComboBox fx:id="sltGrupo7" layoutX="55.0" layoutY="277.0" prefWidth="150.0" />
+            <ComboBox fx:id="sltGrupo8" layoutX="281.0" layoutY="277.0" prefWidth="150.0" />
+            <Button fx:id="btnRegistrar" layoutX="55.0" layoutY="322.0" mnemonicParsing="false" onAction="#registrarMundial" prefHeight="25.0" prefWidth="188.0" text="Registrar" />
+            <Button fx:id="btnRegresar" layoutX="243.0" layoutY="322.0" mnemonicParsing="false" onAction="#regresarVentana" prefHeight="25.0" prefWidth="188.0" text="Regresar" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

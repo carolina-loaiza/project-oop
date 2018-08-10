@@ -72,7 +72,7 @@ public class Equipo {
 
     @Override
     public String toString() {
-        return codigoPais + "," + nombrePais + "," + ranking;
+        return codigoEquipo+","+codigoPais + "," + nombrePais + "," + ranking;
     }  
     
     

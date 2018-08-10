@@ -7,47 +7,68 @@ package cr.ac.ucenfotec.gestores;
 
 import cr.ac.ucenfotec.capalogica.CapaLogica;
 import cr.ac.ucenfotec.capalogica.Equipo;
+import cr.ac.ucenfotec.multi.MultiEquipo;
 import java.io.IOException;
+import java.util.ArrayList;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author jeffry
  */
 public class GestorEquipo {
-    
+
     CapaLogica cl = new CapaLogica();
-    
+
     public GestorEquipo() {
-        
+
     }
-    
-    public boolean registrarEquipo(String codigoPais, String nombrePais, int ranking) throws IOException{
-        
-        Equipo nuevo = new Equipo(codigoPais, nombrePais, ranking);
-        
-        return cl.registrarEquipo(nuevo);
+
+    public static boolean equipoAgregar(String codigoPais, String nombrePais, int ranking) throws Exception {
+        Equipo nuevoEquipo;
+        boolean existe=false;
+        existe = (new MultiEquipo()).existeByCodigo(codigoPais);
+
+        if (existe) {
+            return false;
+        }else{
+
+        nuevoEquipo = (new MultiEquipo()).crear(codigoPais, nombrePais, ranking);
+        return true;
+        }
     }
-    
-    public boolean existeEquipo(String codigo) throws IOException{
-        
+
+    public static Equipo equipoBuscar(String codigoPais) throws Exception {
+        Equipo equipo;
+        equipo = (new MultiEquipo()).buscarByCodigo(codigoPais);
+
+        return equipo;
+    }
+
+    public boolean existeEquipo(String codigo) throws IOException {
+
         return cl.existeEquipo(codigo);
     }
-    
-    public String buscarCodigo(String nombre) throws IOException{
-        
+
+    public String buscarCodigo(String nombre) throws IOException {
+
         return cl.buscarCodigoEquipo(nombre);
     }
-    
-    public Equipo buscarEquipo(String codigo) throws IOException{
-    
+
+    public Equipo buscarEquipo(String codigo) throws IOException {
+
         return cl.buscarEquipoPorCodigo(codigo);
     }
-    
-    
-    
-    public String[] listaEquipos() throws IOException{
-    
+
+    public String[] listaEquipos() throws IOException {
+
         return cl.listaEquipos();
     }
     
+    public ArrayList<String> listaNombre() throws Exception{
+    
+        return (new MultiEquipo()).listarNombres();
+        
+    }
+
 }

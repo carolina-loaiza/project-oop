@@ -14,12 +14,16 @@ import java.util.ArrayList;
  */
 public class CapaLogica {
 
-    String[] usuarioSesion = new String[9];
+    String[] usuarioSesion = new String[12];
 
     public CapaLogica() {
 
     }
     public void setSesion(Usuario nuevo){
+        if(nuevo.getFavorito()==null){
+            Equipo favorito = new Equipo();
+            nuevo.setFavorito(favorito);
+        }        
         usuarioSesion = nuevo.toString().split(",");
     
     }
@@ -70,24 +74,6 @@ public class CapaLogica {
         }
 
         return usuarios;
-    }
-
-    public boolean iniciarSesion(String userName, String clave) throws IOException {
-        boolean sesionIniciada = true;
-
-        Persistencia archivo = new Persistencia("usuarios.txt");
-
-        ArrayList<String> listaUsuarios = archivo.getData();
-        String[] datosUsuario;
-
-        for (String i : listaUsuarios) {
-            datosUsuario = i.split(",");
-            if (userName.equals(datosUsuario[5]) && clave.equals(datosUsuario[6])) {
-                usuarioSesion = datosUsuario;
-                sesionIniciada = true;
-            }
-        }
-        return sesionIniciada;
     }
 
     public boolean registrarMundial(Mundial campeonato) throws IOException {

@@ -24,7 +24,7 @@ public class QuinelaUI extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.setTitle("Control Laboratorios");
+        stage.setTitle("Quinela");
         stage.show();
     }
 

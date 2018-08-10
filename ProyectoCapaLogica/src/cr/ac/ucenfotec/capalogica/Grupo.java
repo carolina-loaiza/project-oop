@@ -20,6 +20,12 @@ public class Grupo {
     public Grupo() {
     }
 
+    public Grupo(char nombre, TreeMap<Integer, Equipo> equipos) {
+        this.nombre = nombre;
+    }
+    
+    
+
     public Grupo(int codigoGrupo, char nombre, TreeMap<Integer, Equipo> equipos) {
         this.codigoGrupo = codigoGrupo;
         this.nombre = nombre;

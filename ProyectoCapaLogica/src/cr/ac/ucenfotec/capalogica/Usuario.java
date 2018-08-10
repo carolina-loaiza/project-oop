@@ -5,6 +5,7 @@
  */
 package cr.ac.ucenfotec.capalogica;
 
+import java.awt.Image;
 import javax.swing.Icon;
 
 /**
@@ -12,16 +13,17 @@ import javax.swing.Icon;
  * @author jeffry
  */
 public class Usuario {
-    
+
     private int codigoUsuario;
     private String nombre;
     private String apellidos;
     private String correo;
     private int puntos;
     private Equipo favorito;
-    private Icon avatar;
+    private Image avatar;
     private String userName;
     private String clave; //maximo 8 caracteres y minimo 6
+    private int tipoUsuario;
 
     public Usuario() {
     }
@@ -36,9 +38,7 @@ public class Usuario {
         this.userName = userName;
         this.clave = clave;
     }
-    
-    
-    
+
     public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, String UserName, String clave) {
         this.codigoUsuario = codigoUsuario;
         this.nombre = nombre;
@@ -60,7 +60,7 @@ public class Usuario {
         puntos = 0;
     }
 
-    public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, Equipo favorito, Icon avatar, String UserName, String clave) {
+    public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, Equipo favorito, Image avatar, String UserName, String clave) {
         this.codigoUsuario = codigoUsuario;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -104,11 +104,11 @@ public class Usuario {
         this.favorito = favorito;
     }
 
-    public Icon getAvatar() {
+    public Image getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Icon avatar) {
+    public void setAvatar(Image avatar) {
         this.avatar = avatar;
     }
 
@@ -146,8 +146,9 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return nombre + "," + apellidos + "," + correo + "," + favorito + "," + avatar + "," + userName + "," + clave;
+        //return codigoUsuario+","+nombre + "," + apellidos + "," + correo + "," + avatar+ "," + userName + "," + clave;
+        return codigoUsuario + "," + nombre + "," + apellidos + "," + correo + "," +puntos+","+ favorito + "," + avatar + "," + userName + "," + clave + "," + tipoUsuario;
+
     }
-    
-    
+
 }

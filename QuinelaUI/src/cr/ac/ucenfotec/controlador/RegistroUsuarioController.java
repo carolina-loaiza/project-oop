@@ -2,13 +2,20 @@ package cr.ac.ucenfotec.controlador;
 
 import cr.ac.ucenfotec.gestores.GestorEquipo;
 import cr.ac.ucenfotec.gestores.GestorUsuario;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,13 +24,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class RegistroUsuarioController implements Initializable {
@@ -56,18 +66,93 @@ public class RegistroUsuarioController implements Initializable {
     private TextField txtUName;
 
     @FXML
-    private ChoiceBox<?> sltEquipo;
+    private ComboBox<String> sltEquipo;
 
     @FXML
     private Button btnRegistrar;
 
-    @FXML
-    void guardarFoto(MouseEvent event) {
-
-    }
-
     GestorUsuario controladorU = new GestorUsuario();
     GestorEquipo controladorE = new GestorEquipo();
+
+    @FXML
+    void imgFotoDragDropped(DragEvent event) {
+//respalda la imagen default para ser utilizada cuando se limpie el formulario
+        //imagenOriginal = imgFoto.getImage();
+
+        Dragboard board = event.getDragboard();
+        List<File> archivos = board.getFiles();
+
+        byte[] avatar = getBytesArrayDesdeImagen(archivos.get(0));
+
+        imgFoto.setImage(getImagenDesdeBytesArray(avatar));
+
+        //imagenCargada = true;
+    }
+
+    @FXML
+    void imgFotoDragOver(DragEvent event) {
+        Dragboard board = event.getDragboard();
+        if (board.hasFiles()) {
+
+            List<File> phil = board.getFiles();
+            String path = phil.get(0).toPath().toString();
+
+            if (path.endsWith(".jpg")
+                    || path.endsWith(".JPG")
+                    || path.endsWith(".jpeg")
+                    || path.endsWith(".JPEG")
+                    || path.endsWith(".gif")
+                    || path.endsWith(".GIF")
+                    || path.endsWith(".png")
+                    || path.endsWith(".PNG")
+                    || path.endsWith(".bmp")
+                    || path.endsWith(".BMP")) {
+                event.acceptTransferModes(TransferMode.ANY);
+            }
+        }
+    }
+
+    private byte[] getBytesArrayDesdeImagen(File archivoImagen) {
+        byte[] retorno = null;
+        ByteArrayOutputStream bos = null;
+        FileInputStream fileInput = null;
+        byte[] buf = new byte[1024];
+        try {
+            fileInput = new FileInputStream(archivoImagen);
+            bos = new ByteArrayOutputStream();
+
+            for (int i = 0; (i = fileInput.read(buf)) != -1;) {
+                bos.write(buf, 0, i);
+            }
+
+            fileInput = new FileInputStream(archivoImagen);
+
+            retorno = bos.toByteArray();
+        } catch (IOException ex) {
+        } finally {
+            if (fileInput != null) {
+                try {
+                    fileInput.close();
+                } catch (IOException ex) {
+                }
+            }
+            if (bos != null) {
+                try {
+                    bos.close();
+                } catch (IOException ex) {
+                }
+            }
+        }
+        return retorno;
+    }
+
+    private Image getImagenDesdeBytesArray(byte[] pImagenEnBytes) {
+        Image retorno = null;
+        if (pImagenEnBytes != null) {
+            retorno = new Image(new ByteArrayInputStream(pImagenEnBytes));
+        }
+        return retorno;
+    }
 
     @FXML
     void registroUsuario(ActionEvent event) throws IOException {
@@ -160,19 +245,26 @@ public class RegistroUsuarioController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String [] equipos = null;
-        String [] uno = null;
+        String[] equipos = null;
+        String[] uno = null;
+        ObservableList<String> options = null;
+        
+        
+        Rectangle rectangulo = new Rectangle(imgFoto.getFitWidth(), imgFoto.getFitHeight());
+		rectangulo.setArcWidth(imgFoto.getFitWidth());
+		rectangulo.setArcHeight(imgFoto.getFitHeight());
+		imgFoto.setClip(rectangulo);
+        
+        
+        
+        
         try {
-            equipos = controladorE.listaEquipos();
-        } catch (IOException ex) {
+            options = FXCollections.observableArrayList(controladorE.listaNombre());
+        } catch (Exception ex) {
             Logger.getLogger(RegistroUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        for(String i : equipos){
-            uno= i.split(",");
-            sltEquipo.setAccessibleText(uno[1]);
-            
-        }
+        sltEquipo.getItems().addAll(options);
+
     }
 
 }

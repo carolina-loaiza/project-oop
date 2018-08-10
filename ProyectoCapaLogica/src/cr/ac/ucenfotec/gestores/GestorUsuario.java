@@ -29,7 +29,7 @@ public class GestorUsuario {
         return cl.registrarUsuario(nuevo);
     }
 
-    public static boolean usuarioAgregar(String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) throws Exception {
+    public boolean usuarioAgregar(String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) throws Exception {
         Usuario nuevoUsuario;
         boolean hecho = false;
         nuevoUsuario = (new MultiUsuario()).buscarByCorreo(correo);
@@ -50,7 +50,6 @@ public class GestorUsuario {
     public boolean inicioSesion(String usuario, String pass) throws IOException, Exception {
         boolean iniciada = false;
         Usuario nuevo = (new MultiUsuario()).login(usuario, pass);
-       //if(cl.iniciarSesion(usuario, pass)){
         if (nuevo != null) {
             cl.setSesion(nuevo);
             iniciada = true;

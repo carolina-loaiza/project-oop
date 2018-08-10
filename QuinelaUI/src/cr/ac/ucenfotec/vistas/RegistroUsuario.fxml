@@ -26,7 +26,7 @@
             <Label layoutX="250.0" layoutY="271.0" text="Equipo Favorito" />
             <Pane layoutX="329.0" layoutY="31.0" prefHeight="68.0" prefWidth="68.0" style="-fx-border-color: gray; -fx-border-radius: 90;">
                <children>
-                  <ImageView fx:id="imgFoto" fitHeight="59.0" fitWidth="87.0" layoutX="4.0" layoutY="5.0" onDragDetected="#guardarFoto" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imgFoto" fitHeight="59.0" fitWidth="60.0" layoutX="4.0" layoutY="5.0" onDragDropped="#imgFotoDragDropped" onDragOver="#imgFotoDragOver" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
             <TextField fx:id="txtNombre" layoutX="91.0" layoutY="118.0" />

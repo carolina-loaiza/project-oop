@@ -62,32 +62,52 @@ public class InicioController implements Initializable {
             pass = txtPass.getText();
 
             if (gUsuario.inicioSesion(usuario, pass)) {
-                Parent root = null;
-                try {
-                    root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/Menu.fxml"));
-                } catch (Exception ex) {
-               }
-                Scene scene = new Scene(root);
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.showAndWait();
+                int index = gUsuario.getSesion().length;
+                int roll = Integer.parseInt(gUsuario.getSesion()[index - 1]);
+                if (roll == 1) {
+
+                    Parent root = null;
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/MenuUsuario.fxml"));
+                    } catch (Exception ex) {
+                    }
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    Stage stg = (Stage) btnIngresar.getScene().getWindow();
+                    stg.hide();
+                    stage.showAndWait();
+                } else {
+
+                    Parent root = null;
+                    try {
+                        root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/Menu.fxml"));
+                    } catch (Exception ex) {
+                    }
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    Stage stg = (Stage) btnIngresar.getScene().getWindow();
+                    stg.hide();
+                    stage.showAndWait();
+                }
             } else {
                 Alert d = new Alert(Alert.AlertType.WARNING);
                 d.setContentText("el usuario no existe, vuelva a intentarlo");
                 d.show();
             }
-        }
 
+        }
     }
 
     @FXML
     void registrarUsuario(MouseEvent event) throws IOException {
 
         Parent root = null;
-        //try {
+        try {
             root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/RegistroUsuario.fxml"));
-        //} catch (Exception ex) {
-        //}
+        } catch (Exception ex) {
+        }
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
