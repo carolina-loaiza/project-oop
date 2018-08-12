@@ -7,7 +7,9 @@ package cr.ac.ucenfotec.gestores;
 
 import cr.ac.ucenfotec.capalogica.CapaLogica;
 import cr.ac.ucenfotec.capalogica.Mundial;
+import cr.ac.ucenfotec.multi.MultiMundial;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -22,19 +24,39 @@ public class GestorMundial {
     public GestorMundial() {
     }
     
-    public boolean registrarMundial() throws IOException{
+    public static boolean registrarMundial(int year, String pais, boolean estado) throws Exception {
+        Mundial nuevoMundial;
         
-        Mundial campeonato = new Mundial();
-        
-        return cl.registrarMundial(campeonato);
+        boolean existe = (new MultiMundial()).existeByYear(year);
+
+        if (existe) {
+            return false;
+        } else {
+            try {
+                (new MultiMundial()).crear(year, pais, estado);
+            } catch (Exception e) {
+                System.out.println("---------- "+e.getMessage()+" ----------");
+                return false;
+            }
+            
+            return true;
+        }
     }
     
-    
-    
-    public String[] listarMundial() throws IOException{
-    
-        return cl.listarMundiales();
+    public ArrayList<Integer> listarMundiales() throws Exception {
+        try {
+            return (new MultiMundial().listarMundiales());  
+        } catch (Exception e) {
+            throw e;
+        }
     }
     
+    public Mundial getMundial(int year) throws Exception {
+        try {
+            return (new MultiMundial().buscarByYear(year));  
+        } catch (Exception e) {
+            throw e;
+        }
+    }
     
 }

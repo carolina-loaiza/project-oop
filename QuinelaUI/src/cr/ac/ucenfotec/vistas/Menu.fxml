@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane fx:id="MenuAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.ucenfotec.controlador.MenuController">
+<AnchorPane fx:id="MenuAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.ucenfotec.controlador.MenuController">
    <children>
       <Pane layoutX="488.0" layoutY="14.0" prefHeight="101.0" prefWidth="98.0" style="-fx-border-color: gray; -fx-border-radius: 70;">
          <children>
@@ -21,6 +21,11 @@
          <children>
             <MenuButton fx:id="menu" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Menu">
               <items>
+                  <Menu mnemonicParsing="false" text="Mundial">
+                     <items>
+                        <MenuItem fx:id="registrarMundial" mnemonicParsing="false" onAction="#registrarMundial" text="Registrar Mundial" />
+                     </items>
+                  </Menu>
                   <Menu fx:id="menuEquipos" mnemonicParsing="false" text="Equipos">
                     <items>
                       <MenuItem fx:id="registroEquipos" mnemonicParsing="false" onAction="#registrarEquipos" text="Registrar Equipos" />

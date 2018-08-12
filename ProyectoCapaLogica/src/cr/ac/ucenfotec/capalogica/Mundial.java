@@ -13,6 +13,7 @@ import java.util.TreeMap;
  */
 public class Mundial {
 
+    private int codigoMundial;
     private int year;
     private String pais;
     private boolean estado;
@@ -26,6 +27,21 @@ public class Mundial {
         this.year = year;
         this.pais = pais;
         this.estado = estado;
+    }
+
+    public Mundial(int codigoMundial, int year, String pais, boolean estado) {
+        this.codigoMundial = codigoMundial;
+        this.year = year;
+        this.pais = pais;
+        this.estado = estado;
+    }
+
+    public int getCodigoMundial() {
+        return codigoMundial;
+    }
+
+    public void setCodigoMundial(int codigoMundial) {
+        this.codigoMundial = codigoMundial;
     }
 
     public int getYear() {

@@ -52,6 +52,9 @@ public class MenuController implements Initializable {
     private MenuItem registrGrupos;
 
     @FXML
+    private MenuItem registrarMundial;
+
+    @FXML
     private MenuItem listaMundial;
 
     @FXML
@@ -112,6 +115,22 @@ public class MenuController implements Initializable {
 
     @FXML
     void mostrarRanking(ActionEvent event) {
+
+    }
+
+    @FXML
+    void registrarMundial(ActionEvent event) {
+        System.out.println("registrarMundial ----------------------------");
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/MundialRegistro.fxml"));
+        } catch (Exception ex) {
+            System.out.println("Exception ex ----------" + ex.getMessage());
+        }
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.showAndWait();
 
     }
 

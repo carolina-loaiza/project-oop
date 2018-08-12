@@ -28,8 +28,6 @@ public class Equipo {
         this.nombrePais = nombrePais;
         this.ranking = ranking;
     }
-    
-    
 
     public Equipo(int codigoEquipo, String codigoPais, String nombrePais, int ranking) {
         this.codigoEquipo = codigoEquipo;
