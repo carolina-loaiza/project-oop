@@ -199,7 +199,12 @@ public class RegistroUsuarioController implements Initializable {
                         if (controladorU.existeUName(user)) {
                             System.out.println("el nombre de usuario ya existe, intente uno diferente");
                         } else {
-                            controladorU.registrarUsuario(nombre, apellido, correo, equipo, user, contrasenna);
+                            if (sltEquipo == null || sltEquipo.equals("")) {
+
+                            } else {
+
+                                controladorU.registrarUsuario(nombre, apellido, correo, equipo, user, contrasenna);
+                            }
                         }
                     }
                 }
@@ -248,16 +253,12 @@ public class RegistroUsuarioController implements Initializable {
         String[] equipos = null;
         String[] uno = null;
         ObservableList<String> options = null;
-        
-        
+
         Rectangle rectangulo = new Rectangle(imgFoto.getFitWidth(), imgFoto.getFitHeight());
-		rectangulo.setArcWidth(imgFoto.getFitWidth());
-		rectangulo.setArcHeight(imgFoto.getFitHeight());
-		imgFoto.setClip(rectangulo);
-        
-        
-        
-        
+        rectangulo.setArcWidth(imgFoto.getFitWidth());
+        rectangulo.setArcHeight(imgFoto.getFitHeight());
+        imgFoto.setClip(rectangulo);
+
         try {
             options = FXCollections.observableArrayList(controladorE.listaNombre());
         } catch (Exception ex) {
@@ -265,6 +266,27 @@ public class RegistroUsuarioController implements Initializable {
         }
         sltEquipo.getItems().addAll(options);
 
+    }
+
+    public void mensaje(int tipo, String mensaje) {
+
+        switch (tipo) {
+            case 1:
+                Alert a = new Alert(Alert.AlertType.WARNING);
+                a.setContentText(mensaje);
+                a.showAndWait();
+                break;
+            case 2:
+                Alert b = new Alert(Alert.AlertType.ERROR);
+                b.setContentText(mensaje);
+                b.showAndWait();
+                break;
+            case 3:
+                Alert c = new Alert(Alert.AlertType.INFORMATION);
+                c.setContentText(mensaje);
+                c.showAndWait();
+                break;
+        }
     }
 
 }
