@@ -1,0 +1,5 @@
+##### este archivo contiene los datos de conexion a la base de datos########
+driveConection:
+com.mysql.jdbc.Driver
+url:
+jdbc:mysql://localhost:8889/quinela?user=root&password=root
