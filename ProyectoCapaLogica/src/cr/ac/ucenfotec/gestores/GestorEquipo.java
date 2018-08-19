@@ -38,37 +38,22 @@ public class GestorEquipo {
         }
     }
 
-    public static Equipo equipoBuscar(String codigoPais) throws Exception {
-        Equipo equipo;
-        equipo = (new MultiEquipo()).buscarByCodigo(codigoPais);
-
-        return equipo;
-    }
-
-    public boolean existeEquipo(String codigo) throws IOException {
-
-        return cl.existeEquipo(codigo);
-    }
-
-    public String buscarCodigo(String nombre) throws IOException {
-
-        return cl.buscarCodigoEquipo(nombre);
-    }
-
-    public Equipo buscarEquipo(String codigo) throws IOException {
-
-        return cl.buscarEquipoPorCodigo(codigo);
-    }
-
-    public String[] listaEquipos() throws IOException {
-
-        return cl.listaEquipos();
+    public static Equipo buscarPais(String nombrePais) throws Exception {
+        try {
+            return (new MultiEquipo().buscarByPais(nombrePais));  
+        } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
+            throw e;
+        }
     }
     
-    public ArrayList<String> listaNombre() throws Exception{
-    
-        return (new MultiEquipo()).listarNombres();
-        
+    public ArrayList<String> listaNombre() throws Exception {
+        try {
+            return (new MultiEquipo()).listarNombres();  
+        } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
+            throw e;
+        }
     }
 
 }

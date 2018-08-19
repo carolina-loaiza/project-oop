@@ -18,13 +18,14 @@ import javafx.collections.ObservableList;
  */
 public class MultiMundial {
 
-    public void crear(int year, String pais, boolean estado) throws java.sql.SQLException, Exception {
+    public void crear(int year, String pais, int estado) throws java.sql.SQLException, Exception {
         Mundial mundial = null;
         int rs = 0;
         String sql;
         sql = "INSERT INTO Mundial (year, pais, estado) "
                 + "VALUES ('" + year + "', '" + pais + "', '" + estado + "');";
         try {
+            System.out.println("---------- crear try ----------");
             rs = Conector.getConector().ejecutarSQL(sql, 0);
             mundial = new Mundial(year, pais, estado);
         } catch (Exception e) {
@@ -43,17 +44,20 @@ public class MultiMundial {
         try {
             rs = Conector.getConector().ejecutarSQL(sql, true);
             if (rs != null && rs.next()) {
+                System.out.println("---------- buscarByYear try ----------");
                 mundial = new Mundial(
                     rs.getInt("codigoMundial"),
                     rs.getInt("year"),
                     rs.getString("pais"),
-                    rs.getBoolean("estado"));
+                    rs.getInt("estado"));
                 rs.close();
                 return mundial;
             } else {
+                System.out.println("---------- Error en registro. ----------");
                 throw new Exception("Error en registro.");
             }
         } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
             throw e;
         }
     }
@@ -68,18 +72,17 @@ public class MultiMundial {
         try {
             rs = Conector.getConector().ejecutarSQL(sql, true);
             if (rs != null && rs.next()) {
-                mundial = new Mundial(
-                    rs.getInt("codigoMundial"),
-                    rs.getInt("year"),
-                    rs.getString("pais"),
-                    rs.getBoolean("estado"));
-                    rs.close();
+                System.out.println("---------- existeByYear try ----------");
+                System.out.println("---------- existeByYear try"+rs.getInt("codigoMundial")+" ----------");
+                rs.close();
+                return true;
+            } else {
+                return false;
             }
         } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
             return false;
         }
-        
-        return year == mundial.getYear();
     }
 
     public ArrayList<Integer> listarMundiales() throws java.sql.SQLException, Exception {
@@ -88,7 +91,7 @@ public class MultiMundial {
         String sql;
         sql = "SELECT year "
                 + "FROM Mundial "
-                + "WHERE estado=true;";
+                + "WHERE estado=1;";
         
         try {
             rs = Conector.getConector().ejecutarSQL(sql, true);
@@ -100,6 +103,7 @@ public class MultiMundial {
             }
             return lista;
         } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
             throw e;
         }
     }

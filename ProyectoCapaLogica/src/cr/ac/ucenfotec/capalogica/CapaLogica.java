@@ -76,48 +76,48 @@ public class CapaLogica {
         return usuarios;
     }
 
-    public boolean registrarMundial(Mundial campeonato) throws IOException {
-        boolean registrado = true;
-
-        Persistencia archivo = new Persistencia("mundiales.txt");
-        if (existeMundial(campeonato.getPais())) {
-            registrado = false;
-        } else {
-            archivo.setData(campeonato.toString());
-        }
-
-        return registrado;
-
-    }
-
-    public String[] listarMundiales() throws IOException {
-        Persistencia archivo = new Persistencia("mundiales.txt");
-        ArrayList<String> lista = archivo.getData();
-        String[] mundiales = new String[lista.size()];
-
-        int cont = 0;
-        for (String i : lista) {
-            mundiales[cont] = i;
-            cont++;
-        }
-
-        return mundiales;
-    }
-
-    public boolean existeMundial(String pais) throws IOException {
-        Persistencia archivo = new Persistencia("mundiales.txt");
-        boolean existe = false;
-        ArrayList<String> listaMundiales = archivo.getData();
-        String[] torneo;
-
-        for (String i : listaMundiales) {
-            torneo = i.split(",");
-            if (pais.equals(torneo[1])) {
-                existe = true;
-            }
-        }
-        return existe;
-    }
+//    public boolean registrarMundial(Mundial campeonato) throws IOException {
+//        boolean registrado = true;
+//
+//        Persistencia archivo = new Persistencia("mundiales.txt");
+//        if (existeMundial(campeonato.getPais())) {
+//            registrado = false;
+//        } else {
+//            archivo.setData(campeonato.toString());
+//        }
+//
+//        return registrado;
+//
+//    }
+//
+//    public String[] listarMundiales() throws IOException {
+//        Persistencia archivo = new Persistencia("mundiales.txt");
+//        ArrayList<String> lista = archivo.getData();
+//        String[] mundiales = new String[lista.size()];
+//
+//        int cont = 0;
+//        for (String i : lista) {
+//            mundiales[cont] = i;
+//            cont++;
+//        }
+//
+//        return mundiales;
+//    }
+//
+//    public boolean existeMundial(String pais) throws IOException {
+//        Persistencia archivo = new Persistencia("mundiales.txt");
+//        boolean existe = false;
+//        ArrayList<String> listaMundiales = archivo.getData();
+//        String[] torneo;
+//
+//        for (String i : listaMundiales) {
+//            torneo = i.split(",");
+//            if (pais.equals(torneo[1])) {
+//                existe = true;
+//            }
+//        }
+//        return existe;
+//    }
 
     public boolean registrarGrupo(Grupo nuevo) throws IOException {
         boolean registrado = true;

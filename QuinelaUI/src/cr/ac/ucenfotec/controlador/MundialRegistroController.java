@@ -53,34 +53,40 @@ public class MundialRegistroController implements Initializable {
 
     @FXML
     void registrarMundial(ActionEvent event) throws IOException, Exception {
-
+        System.out.println("ActionEvent registrarMundial ----------------------------");
         int year;
         String pais;
         String estadoInput;
-        boolean estado;
+        int estado;
 
         if (vacio()) {
+            System.out.println("ActionEvent vacio ----------------------------");
             Alert d = new Alert(Alert.AlertType.WARNING);
             d.setContentText("complete los campos en blanco");
             d.showAndWait();
         } else {
+            System.out.println("ActionEvent vacio else ----------------------------");
             year = Integer.parseInt(txtYear.getText());
             pais = txtNombrePais.getText();
             estadoInput = txtEstado.getValue().toString();
-            
+            System.out.println("year "+year+" ----------------------------");
+            System.out.println("pais "+pais+" ----------------------------");
+            System.out.println("estadoInput "+estadoInput+" ----------------------------");
             if (estadoInput.equals("Activo")) {
-               estado = true;
+               estado = 1;
             } else {
-                estado = false;
+                estado = 0;
             };
-            
+            System.out.println("estado "+estado+" ----------------------------");
             if (gMundial.registrarMundial(year, pais, estado)) {
                 Alert d = new Alert(Alert.AlertType.CONFIRMATION);
                 d.setContentText("registro realizado");
                 d.showAndWait();
+                System.out.println("---------- gMundial.registrarMundial ----------");
 
                 Parent root = null;
                 try {
+                    System.out.println("---------- gMundial.registrarMundial try ----------");
                     root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/Menu.fxml"));
                 } catch (Exception ex) {
                     System.out.println("---------- "+ex.getMessage()+" ----------");

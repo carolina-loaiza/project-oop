@@ -24,12 +24,14 @@ public class GestorMundial {
     public GestorMundial() {
     }
     
-    public static boolean registrarMundial(int year, String pais, boolean estado) throws Exception {
+    public static boolean registrarMundial(int year, String pais, int estado) throws Exception {
+        System.out.println("---------- Gestor registrarMundial "+year+ " "+ pais + " "+ estado+"----------");
         Mundial nuevoMundial;
         
         boolean existe = (new MultiMundial()).existeByYear(year);
 
         if (existe) {
+            System.out.println("---------- registrarMundial existe ----------");
             return false;
         } else {
             try {
@@ -47,6 +49,7 @@ public class GestorMundial {
         try {
             return (new MultiMundial().listarMundiales());  
         } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
             throw e;
         }
     }
@@ -55,6 +58,7 @@ public class GestorMundial {
         try {
             return (new MultiMundial().buscarByYear(year));  
         } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
             throw e;
         }
     }

@@ -16,20 +16,20 @@ public class Mundial {
     private int codigoMundial;
     private int year;
     private String pais;
-    private boolean estado;
+    private int estado;
     private TreeMap<Integer, Grupo> faseGrupos = new TreeMap<Integer, Grupo>();
     private TreeMap<Integer, Juego> listaJuegos = new TreeMap<Integer, Juego>();
 
     public Mundial() {
     }
 
-    public Mundial(int year, String pais, boolean estado) {
+    public Mundial(int year, String pais, int estado) {
         this.year = year;
         this.pais = pais;
         this.estado = estado;
     }
 
-    public Mundial(int codigoMundial, int year, String pais, boolean estado) {
+    public Mundial(int codigoMundial, int year, String pais, int estado) {
         this.codigoMundial = codigoMundial;
         this.year = year;
         this.pais = pais;
@@ -60,11 +60,11 @@ public class Mundial {
         this.pais = pais;
     }
 
-    public boolean isEstado() {
+    public int isEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 

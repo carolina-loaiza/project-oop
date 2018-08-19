@@ -1,14 +1,6 @@
 package cr.ac.ucenfotec.db;
 
-/**
- * Clase AccesoBD
- *
- * @version 2.0
- * @author Laura Monge Izaguirre Clase que maneja el acceso a la base de datos.
- * Se debe hacer una instancia de la clase para poder utilizar sus servicios
- *
- *
- */
+
 import java.sql.*;
 import java.util.TreeMap;
 import java.util.logging.Level;
@@ -73,6 +65,7 @@ public class AccesoBD {
         try {
             rs = st.executeUpdate(sentencia);
         } catch (SQLException ex) {
+            System.out.println("---------- "+ex.getMessage()+" ----------");
             Logger.getLogger(AccesoBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
@@ -127,6 +120,7 @@ public class AccesoBD {
         try {
             conn.close();
         } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
             /*este metodo es llamado por el
 			 *garbage collector, por lo tanto
 			 *se atrapa la excepcion pero no se

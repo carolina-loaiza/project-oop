@@ -123,8 +123,10 @@ public class MenuController implements Initializable {
         System.out.println("registrarMundial ----------------------------");
         Parent root = null;
         try {
+            System.out.println("registrarMundial try ----------------------------");
             root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/MundialRegistro.fxml"));
         } catch (Exception ex) {
+            System.out.println("registrarMundial catch ----------------------------");
             System.out.println("Exception ex ----------" + ex.getMessage());
         }
         Scene scene = new Scene(root);

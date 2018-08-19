@@ -35,34 +35,60 @@ public class MultiEquipo {
         return equipo;
     }
 
-    public Equipo buscarByCodigo(String codigoEquipo) throws java.sql.SQLException, Exception {
+    public Equipo buscarByCodigo(int codigoEquipo) throws java.sql.SQLException, Exception {
         Equipo equipo = null;
         ResultSet rs;
         String sql;
         sql = "SELECT codigoEquipo, codigoPais, nombrePais, ranking "
                 + "FROM Equipos "
                 + "WHERE codigoEquipo='" + codigoEquipo + "';";
-        rs = Conector.getConector().ejecutarSQL(sql, true);
-        if (rs != null) {
-            if (rs.next()) {
+        
+        try {
+            rs = Conector.getConector().ejecutarSQL(sql, true);
+            if (rs != null && rs.next()) {
                 equipo = new Equipo(
-                        rs.getInt("codigoEquipo"),
-                        rs.getString("codigoPais"),
-                        rs.getString("nombrePais"),
-                        rs.getInt("ranking"));
+                    rs.getInt("codigoEquipo"),
+                    rs.getString("codigoPais"),
+                    rs.getString("nombrePais"),
+                    rs.getInt("ranking"));
+                    
+                rs.close();
+                return equipo;
             } else {
-
-                //si el else devuelve este mensaje como Exception y la funcion retorna un objeto tipo Equipo
-                //no se puede hacer una alerta al usuario porque el exception esta en el multi y no tengo como retornarlo
-                //es necesario ver que tipo de retorno vamos a tener en estas funciones
                 throw new Exception("El equipo no est� registrado.");
             }
-
-            rs.close();
-        } else {
-            equipo = new Equipo();
+        } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
+            throw e;
         }
-        return equipo;
+    }
+    
+    public static Equipo buscarByPais(String nombrePais) throws java.sql.SQLException, Exception {
+        Equipo equipo = null;
+        ResultSet rs;
+        String sql;
+        sql = "SELECT codigoEquipo, codigoPais, nombrePais, ranking "
+                + "FROM Equipos "
+                + "WHERE nombrePais='" + nombrePais + "';";
+        
+        try {
+            rs = Conector.getConector().ejecutarSQL(sql, true);
+            if (rs != null && rs.next()) {
+                equipo = new Equipo(
+                    rs.getInt("codigoEquipo"),
+                    rs.getString("codigoPais"),
+                    rs.getString("nombrePais"),
+                    rs.getInt("ranking"));
+                    
+                rs.close();
+                return equipo;
+            } else {
+                throw new Exception("El equipo no est� registrado.");
+            }
+        } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
+            throw e;
+        }
     }
 
     public boolean existeByCodigo(String codigoPais) throws java.sql.SQLException, Exception {

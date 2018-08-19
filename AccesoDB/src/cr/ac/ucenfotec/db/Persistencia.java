@@ -12,10 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- *
- * @author jeffr
- */
+
 public class Persistencia {
 
     private String file;
@@ -39,6 +36,7 @@ public class Persistencia {
             buffer.close();
 
         } catch (IOException e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
             throw e;
         }
 

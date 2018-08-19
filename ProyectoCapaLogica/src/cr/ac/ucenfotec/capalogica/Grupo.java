@@ -5,6 +5,7 @@
  */
 package cr.ac.ucenfotec.capalogica;
 
+import java.util.ArrayList;
 import java.util.TreeMap;
 
 /**
@@ -14,20 +15,21 @@ import java.util.TreeMap;
 public class Grupo {
 
     private int codigoGrupo;
-    private char nombre;
-    private TreeMap<Integer, Equipo> equipos = new TreeMap<Integer, Equipo>();
+    private int codigoMundial;
+    private String nombre;
+    private ArrayList<Equipo> equipos = new ArrayList<>();
 
     public Grupo() {
     }
 
-    public Grupo(char nombre, TreeMap<Integer, Equipo> equipos) {
+    public Grupo(String nombre, ArrayList<Equipo> equipos) {
         this.nombre = nombre;
+        this.equipos = equipos;
     }
-    
-    
 
-    public Grupo(int codigoGrupo, char nombre, TreeMap<Integer, Equipo> equipos) {
+    public Grupo(int codigoGrupo, int codigoMundial, String nombre, ArrayList<Equipo> equipos) {
         this.codigoGrupo = codigoGrupo;
+        this.codigoMundial = codigoMundial;
         this.nombre = nombre;
         this.equipos = equipos;
     }
@@ -36,30 +38,34 @@ public class Grupo {
         return codigoGrupo;
     }
 
+    public int getCodigoMundial() {
+        return codigoMundial;
+    }
+
+    public void setCodigoMundial(int codigoMundial) {
+        this.codigoMundial = codigoMundial;
+    }
+
     public void setCodigoGrupo(int codigoGrupo) {
         this.codigoGrupo = codigoGrupo;
     }
 
-    public char getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(char nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public TreeMap<Integer, Equipo> getEquipos() {
+    public ArrayList<Equipo> getEquipos() {
         return equipos;
     }
 
-    public void setEquipos(TreeMap<Integer, Equipo> equipos) {
+    public void setEquipos(ArrayList<Equipo> equipos) {
         this.equipos = equipos;
     }
-
-    public void setUnEquipo(Equipo equipoNuevo) {
-        this.equipos.put(equipoNuevo.getCodigoEquipo(), equipoNuevo);
-    }
-    
+      
     /// Revisar equipos.toString
     @Override
     public String toString() {
