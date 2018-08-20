@@ -5,10 +5,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
@@ -22,20 +19,6 @@
                      <content>
                         <Pane prefHeight="525.0" prefWidth="578.0">
                            <children>
-                              <GridPane layoutX="18.0" layoutY="134.0" prefHeight="23.0" prefWidth="546.0">
-                                <columnConstraints>
-                                  <ColumnConstraints fx:id="colPartidos" hgrow="SOMETIMES" maxWidth="288.0" minWidth="10.0" prefWidth="267.0" />
-                                  <ColumnConstraints fx:id="colMarcador" hgrow="SOMETIMES" maxWidth="286.0" minWidth="0.0" prefWidth="103.0" />
-                                  <ColumnConstraints fx:id="colFecha" hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="207.0" /></columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <Label text="Label" GridPane.columnIndex="2" />
-                                    <Label text="Label 1" />
-                                    <Label text="Label" GridPane.columnIndex="1" />
-                                 </children>
-                              </GridPane>
                               <ChoiceBox fx:id="sltMundial" layoutX="14.0" layoutY="46.0" prefWidth="150.0" />
                               <Label layoutX="16.0" layoutY="16.0" prefHeight="24.0" prefWidth="179.0" text="Selecionar mundial">
                                  <font>
@@ -61,6 +44,7 @@
                                  </font>
                               </Label>
                               <Line endX="32.5" endY="446.0" fill="#aba6a6" layoutX="322.0" layoutY="102.0" startX="32.5" startY="15.5" stroke="#d7d1d1" />
+                              <Pane fx:id="panelContent" layoutX="6.0" layoutY="118.0" prefHeight="407.0" prefWidth="574.0" />
                            </children>
                         </Pane>
                      </content>

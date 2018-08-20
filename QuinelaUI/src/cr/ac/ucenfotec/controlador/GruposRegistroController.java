@@ -118,7 +118,7 @@ public class GruposRegistroController implements Initializable {
                     
                     if (listaEquiposGrupo.size() == 8) {
                         crearPartidos(mundial, listaEquiposGrupo);
-                        root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/cronograma.fxml"));
+                        //root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/cronograma.fxml"));
                     }
                 } catch (Exception ex) {
                     System.out.println("---------- "+ex.getMessage()+" ----------");

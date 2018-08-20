@@ -44,7 +44,7 @@ public class GestorJuegos {
     }
     
     public ArrayList<String[]> listaJuegos(int codigoMundial) throws IOException, Exception {
-        ArrayList<String[]> lista = new ArrayList<>();
+        ArrayList<String[]> lista;
         
         try {
             lista = (new MultiJuegos()).listarJuegos(codigoMundial);
