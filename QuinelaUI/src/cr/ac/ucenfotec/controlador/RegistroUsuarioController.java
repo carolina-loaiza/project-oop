@@ -187,17 +187,17 @@ public class RegistroUsuarioController implements Initializable {
             Matcher mather = pattern.matcher(correo);
 
             if (!mather.find() == true) {
-                System.out.println("El email ingresado es inválido.");
+                alerta("El email ingresado es inválido.", 2);
             } else {
                 if (!contrasenna.equals(confirmacion)) {
-                    System.out.println("los campos de contraseña no coincide con la confirmación.");
+                    alerta("los campos de contraseña no coincide con la confirmación.",2);
                 } else {
                     if (controladorU.existeUsuario(correo)) {
-                        System.out.println("ya existe un usuario con esta cuenta de correo, intente con una diferente");
+                        alerta("ya existe un usuario con esta cuenta de correo, intente con una diferente",2);
 
                     } else {
                         if (controladorU.existeUName(user)) {
-                            System.out.println("el nombre de usuario ya existe, intente uno diferente");
+                            alerta("el nombre de usuario ya existe, intente uno diferente",2);
                         } else {
                             controladorU.usuarioAgregar(nombre, apellido, correo, equipo, user, contrasenna);
                             Parent root = null;
@@ -259,6 +259,36 @@ public class RegistroUsuarioController implements Initializable {
         }
         sltEquipo.getItems().addAll(options);
 
+    }
+
+    private void alerta(String mensaje, int tipo) {
+        switch (tipo) {
+            case 1:
+                Alert d = new Alert(Alert.AlertType.CONFIRMATION);
+                d.setContentText(mensaje);
+                d.show();
+                break;
+            case 2:
+                d = new Alert(Alert.AlertType.ERROR);
+                d.setContentText(mensaje);
+                d.show();
+                break;
+            case 3:
+                d = new Alert(Alert.AlertType.INFORMATION);
+                d.setContentText(mensaje);
+                d.show();
+                break;
+            case 4:
+                d = new Alert(Alert.AlertType.NONE);
+                d.setContentText(mensaje);
+                d.show();
+                break;
+                case 5:
+                d = new Alert(Alert.AlertType.WARNING);
+                d.setContentText(mensaje);
+                d.show();
+                break;
+        }
     }
 
 }
