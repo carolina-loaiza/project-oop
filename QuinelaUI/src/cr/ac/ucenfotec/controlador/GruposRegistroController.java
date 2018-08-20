@@ -133,23 +133,19 @@ public class GruposRegistroController implements Initializable {
         ArrayList<ChoiceBox> listaChoiceBox = new ArrayList<ChoiceBox>(Arrays.asList(sltEquipo1, sltEquipo2, sltEquipo3, sltEquipo4));
         
         for (ChoiceBox temChoiceBox : listaChoiceBox) {
-            String value = "";
             
-            if (temChoiceBox.getValue() != null) {
-                value = temChoiceBox.getValue().toString();
-            };
-            
-            if (selectedChoiceBox != temChoiceBox) {
+            if (selectedChoiceBox != temChoiceBox && temChoiceBox.getValue() == null) {
                 temChoiceBox.getItems().clear();
                 for (String temp : listaEquipos) {
+                    //System.out.println(temp);
                    temChoiceBox.getItems().add(temp);
                 }
             }
             
-            if (value != "" && reset == false) {
-                temChoiceBox.setValue(value);
+            if (reset) {
+                temChoiceBox.setValue("");
             }
-            System.out.println(value);
+          
         }
     }
     
@@ -204,7 +200,7 @@ public class GruposRegistroController implements Initializable {
                 sltMundial.getItems().add(temp);
             }
             
-            setListaEquipos(null, true);
+            setListaEquipos(null, false);
             setChoiceBoxEquipos();
             System.out.println(gGrupo.listaEquipos().toString());
         } catch (Exception e) {
