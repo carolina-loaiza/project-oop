@@ -7,6 +7,8 @@
 package cr.ac.ucenfotec.multi;
 
 import cr.ac.ucenfotec.db.Conector;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -23,6 +25,31 @@ public class MultiJuegos {
         try {
             System.out.println("---------- MultiJuegos crear try ----------");
             rs = Conector.getConector().ejecutarSQL(sql, 0);
+        } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
+            throw e;
+        }
+    }
+    
+    public ArrayList<String[]> listarJuegos(int codigoMundial) throws java.sql.SQLException, Exception {
+        ArrayList<String[]> listaJuegos = new ArrayList<>();
+        ResultSet rs;
+        String sql;
+        sql = "SELECT primero, segundo, fecha, marcador "
+                + "FROM Juegos "
+                + "WHERE codigoMundial='" + codigoMundial + "';";
+        
+        try {
+            rs = Conector.getConector().ejecutarSQL(sql, true);
+            if (rs != null) {
+                while (rs.next()) {
+                   String[] juego = {rs.getString("primero"), rs.getString("segundo"), rs.getString("fecha"), rs.getString("marcador")};
+                   listaJuegos.add(juego);
+                }
+                return listaJuegos;
+            } else {
+                throw new Exception("Empty");
+            }
         } catch (Exception e) {
             System.out.println("---------- "+e.getMessage()+" ----------");
             throw e;

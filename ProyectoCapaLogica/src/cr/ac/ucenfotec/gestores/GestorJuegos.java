@@ -42,4 +42,16 @@ public class GestorJuegos {
             throw e;
         }
     }
+    
+    public ArrayList<String[]> listaJuegos(int codigoMundial) throws IOException, Exception {
+        ArrayList<String[]> lista = new ArrayList<>();
+        
+        try {
+            lista = (new MultiJuegos()).listarJuegos(codigoMundial);
+            return lista;
+        } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
+            throw e;
+        }
+    }
 }

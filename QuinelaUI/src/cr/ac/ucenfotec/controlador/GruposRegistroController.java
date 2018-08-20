@@ -98,20 +98,27 @@ public class GruposRegistroController implements Initializable {
             equipo4 = sltEquipo4.getValue().toString();
             
             if (gGrupo.registrarGrupo(mundial, nombre, equipo1, equipo2, equipo3, equipo4) ) {
-                Alert d = new Alert(Alert.AlertType.CONFIRMATION);
-                d.setContentText("Registro realizado.");
-                d.showAndWait();
-
                 Parent root = null;
+                
                 try {
                     listaEquiposGrupo = (gGrupo.listaEquipos());
                     sltMundial.getItems().clear();
                     txtNombre.setText(null);
                     setListaEquipos(null, true);
                     System.out.println(listaEquiposGrupo.size());
+                    
+                    Alert d = new Alert(Alert.AlertType.CONFIRMATION);
+                    if (listaEquiposGrupo.size() == 8) {
+                        d.setContentText("Registro realizado. Máximo de grupos creados.");
+                    } else {
+                        d.setContentText("Registro realizado.");
+                    }
+                    
+                    d.showAndWait();
+                    
                     if (listaEquiposGrupo.size() == 8) {
                         crearPartidos(mundial, listaEquiposGrupo);
-                        //root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/CrearPartidos.fxml"));
+                        root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/cronograma.fxml"));
                     }
                 } catch (Exception ex) {
                     System.out.println("---------- "+ex.getMessage()+" ----------");
