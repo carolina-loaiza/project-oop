@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="645.0" prefWidth="980.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="cr.ac.ucenfotec.vistas.LigasController">
+    <stylesheets>
+        <URL value="@ligas.css" />
+    </stylesheets>
+   <children>
+      <Pane layoutY="-2.0" prefHeight="654.0" prefWidth="697.0">
+         <children>
+            <Pane fx:id="cuadro2" layoutX="375.0" layoutY="29.0" prefHeight="147.0" prefWidth="308.0" style="-fx-border-color: gray;">
+               <children>
+                  <Label fx:id="grupo2" layoutX="126.0" layoutY="5.0" prefHeight="17.0" prefWidth="56.0" text="Grupo2" />
+                  <Label fx:id="equipo13" layoutX="41.0" layoutY="29.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo21" layoutX="201.0" layoutY="28.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo31" layoutX="41.0" layoutY="47.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo41" layoutX="202.0" layoutY="47.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo51" layoutX="41.0" layoutY="65.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo61" layoutX="202.0" layoutY="65.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo71" layoutX="42.0" layoutY="83.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo81" layoutX="201.0" layoutY="82.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo91" layoutX="40.0" layoutY="100.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo101" layoutX="202.0" layoutY="100.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo111" layoutX="40.0" layoutY="118.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo121" layoutX="201.0" layoutY="117.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="marcador110" layoutX="106.0" layoutY="29.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador25" layoutX="185.0" layoutY="29.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador31" layoutX="106.0" layoutY="47.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador41" layoutX="185.0" layoutY="47.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador51" layoutX="106.0" layoutY="65.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador61" layoutX="185.0" layoutY="65.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador71" layoutX="106.0" layoutY="83.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador81" layoutX="184.0" layoutY="82.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador91" layoutX="106.0" layoutY="100.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador101" layoutX="185.0" layoutY="100.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador111" layoutX="106.0" layoutY="119.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador121" layoutX="185.0" layoutY="118.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Separator layoutX="39.0" layoutY="46.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="39.0" layoutY="64.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="39.0" layoutY="100.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="39.0" layoutY="117.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="39.0" layoutY="82.0" prefHeight="3.0" prefWidth="213.0" />
+                  <TextField fx:id="marcador20" layoutX="129.0" layoutY="28.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador21" layoutX="157.0" layoutY="28.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador22" layoutX="129.0" layoutY="46.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador23" layoutX="157.0" layoutY="46.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador24" layoutX="129.0" layoutY="64.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador25" layoutX="157.0" layoutY="64.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador26" layoutX="129.0" layoutY="82.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador27" layoutX="157.0" layoutY="82.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador28" layoutX="129.0" layoutY="100.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador29" layoutX="157.0" layoutY="100.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador220" layoutX="129.0" layoutY="118.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador221" layoutX="157.0" layoutY="118.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+            <Pane fx:id="cuadro3" layoutX="33.0" layoutY="179.0" prefHeight="161.0" prefWidth="308.0" style="-fx-border-color: gray;">
+               <children>
+                  <Label fx:id="grupo3" layoutX="126.0" layoutY="6.0" prefHeight="17.0" prefWidth="56.0" text="Grupo3" />
+                  <Label fx:id="equipo14" layoutX="32.0" layoutY="47.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo22" layoutX="192.0" layoutY="46.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo32" layoutX="32.0" layoutY="65.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo42" layoutX="193.0" layoutY="65.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo52" layoutX="32.0" layoutY="83.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo62" layoutX="193.0" layoutY="83.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo72" layoutX="33.0" layoutY="101.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo82" layoutX="192.0" layoutY="100.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo92" layoutX="31.0" layoutY="118.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo102" layoutX="193.0" layoutY="118.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo112" layoutX="31.0" layoutY="136.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo122" layoutX="192.0" layoutY="135.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="marcador112" layoutX="97.0" layoutY="47.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador26" layoutX="176.0" layoutY="47.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador32" layoutX="97.0" layoutY="65.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador42" layoutX="176.0" layoutY="65.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador52" layoutX="97.0" layoutY="83.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador62" layoutX="176.0" layoutY="83.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador72" layoutX="97.0" layoutY="101.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador82" layoutX="175.0" layoutY="100.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador92" layoutX="97.0" layoutY="118.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador102" layoutX="176.0" layoutY="118.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador112" layoutX="97.0" layoutY="137.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador122" layoutX="176.0" layoutY="136.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Separator layoutX="30.0" layoutY="64.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="30.0" layoutY="82.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="30.0" layoutY="118.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="30.0" layoutY="135.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="30.0" layoutY="100.0" prefHeight="3.0" prefWidth="213.0" />
+                  <TextField fx:id="marcador30" layoutX="120.0" layoutY="46.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador31" layoutX="148.0" layoutY="46.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador32" layoutX="120.0" layoutY="64.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador33" layoutX="148.0" layoutY="64.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador34" layoutX="120.0" layoutY="82.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador35" layoutX="148.0" layoutY="82.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador36" layoutX="120.0" layoutY="100.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador37" layoutX="148.0" layoutY="100.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador38" layoutX="120.0" layoutY="118.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador39" layoutX="148.0" layoutY="118.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador330" layoutX="120.0" layoutY="136.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador332" layoutX="148.0" layoutY="136.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+            <Pane fx:id="cuadro4" layoutX="375.0" layoutY="179.0" prefHeight="161.0" prefWidth="308.0" style="-fx-border-color: gray;">
+               <children>
+                  <Label fx:id="grupo4" layoutX="126.0" layoutY="6.0" prefHeight="17.0" prefWidth="56.0" text="Grupo4" />
+                  <Label fx:id="equipo15" layoutX="31.0" layoutY="41.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo23" layoutX="191.0" layoutY="40.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo33" layoutX="31.0" layoutY="59.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo43" layoutX="192.0" layoutY="59.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo53" layoutX="31.0" layoutY="77.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo63" layoutX="192.0" layoutY="77.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo73" layoutX="32.0" layoutY="95.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo83" layoutX="191.0" layoutY="94.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo93" layoutX="30.0" layoutY="112.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo103" layoutX="192.0" layoutY="112.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo113" layoutX="30.0" layoutY="130.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo123" layoutX="191.0" layoutY="129.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="marcador113" layoutX="96.0" layoutY="41.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador27" layoutX="175.0" layoutY="41.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador33" layoutX="96.0" layoutY="59.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador43" layoutX="175.0" layoutY="59.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador53" layoutX="96.0" layoutY="77.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador63" layoutX="175.0" layoutY="77.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador73" layoutX="96.0" layoutY="95.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador83" layoutX="174.0" layoutY="94.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador93" layoutX="96.0" layoutY="112.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador103" layoutX="175.0" layoutY="112.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador113" layoutX="96.0" layoutY="131.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador123" layoutX="175.0" layoutY="130.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Separator layoutX="29.0" layoutY="58.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="29.0" layoutY="76.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="29.0" layoutY="112.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="29.0" layoutY="129.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="29.0" layoutY="94.0" prefHeight="3.0" prefWidth="213.0" />
+                  <TextField fx:id="marcador40" layoutX="119.0" layoutY="40.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador41" layoutX="147.0" layoutY="40.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador42" layoutX="119.0" layoutY="58.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador43" layoutX="147.0" layoutY="58.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador44" layoutX="119.0" layoutY="76.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador45" layoutX="147.0" layoutY="76.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador46" layoutX="119.0" layoutY="94.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador47" layoutX="147.0" layoutY="94.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador48" layoutX="119.0" layoutY="112.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador49" layoutX="147.0" layoutY="112.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador440" layoutX="119.0" layoutY="130.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador441" layoutX="147.0" layoutY="130.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+            <Pane fx:id="cuadro5" layoutX="33.0" layoutY="347.0" prefHeight="147.0" prefWidth="308.0" style="-fx-border-color: gray;">
+               <children>
+                  <Label fx:id="grupo5" layoutX="126.0" layoutY="6.0" prefHeight="17.0" prefWidth="56.0" text="Grupo5" />
+                  <Label fx:id="equipo16" layoutX="47.0" layoutY="26.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo24" layoutX="207.0" layoutY="25.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo34" layoutX="47.0" layoutY="44.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo44" layoutX="208.0" layoutY="44.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo54" layoutX="47.0" layoutY="62.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo64" layoutX="208.0" layoutY="62.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo74" layoutX="48.0" layoutY="80.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo84" layoutX="207.0" layoutY="79.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo94" layoutX="46.0" layoutY="97.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo104" layoutX="208.0" layoutY="97.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo114" layoutX="46.0" layoutY="115.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo124" layoutX="207.0" layoutY="114.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="marcador114" layoutX="112.0" layoutY="26.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador28" layoutX="191.0" layoutY="26.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador34" layoutX="112.0" layoutY="44.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador44" layoutX="191.0" layoutY="44.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador54" layoutX="112.0" layoutY="62.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador64" layoutX="191.0" layoutY="62.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador74" layoutX="112.0" layoutY="80.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador84" layoutX="190.0" layoutY="79.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador94" layoutX="112.0" layoutY="97.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador104" layoutX="191.0" layoutY="97.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador114" layoutX="112.0" layoutY="116.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador124" layoutX="191.0" layoutY="115.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Separator layoutX="45.0" layoutY="43.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="45.0" layoutY="61.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="45.0" layoutY="97.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="45.0" layoutY="114.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="45.0" layoutY="79.0" prefHeight="3.0" prefWidth="213.0" />
+                  <TextField fx:id="marcador50" layoutX="135.0" layoutY="25.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador51" layoutX="163.0" layoutY="25.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador52" layoutX="135.0" layoutY="43.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador53" layoutX="163.0" layoutY="43.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador54" layoutX="135.0" layoutY="61.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador55" layoutX="163.0" layoutY="61.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador56" layoutX="135.0" layoutY="79.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador57" layoutX="163.0" layoutY="79.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador58" layoutX="135.0" layoutY="97.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador59" layoutX="163.0" layoutY="97.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador550" layoutX="135.0" layoutY="115.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador551" layoutX="163.0" layoutY="115.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+            <Pane fx:id="cuadro6" layoutX="375.0" layoutY="347.0" prefHeight="147.0" prefWidth="308.0" style="-fx-border-color: gray;">
+               <children>
+                  <Label fx:id="grupo6" layoutX="126.0" layoutY="6.0" prefHeight="17.0" prefWidth="56.0" text="Grupo6" />
+                  <Label fx:id="equipo17" layoutX="40.0" layoutY="23.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo25" layoutX="200.0" layoutY="22.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo35" layoutX="40.0" layoutY="41.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo45" layoutX="201.0" layoutY="41.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo55" layoutX="40.0" layoutY="59.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo65" layoutX="201.0" layoutY="59.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo75" layoutX="41.0" layoutY="77.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo85" layoutX="200.0" layoutY="76.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo95" layoutX="39.0" layoutY="94.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo105" layoutX="201.0" layoutY="94.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo115" layoutX="39.0" layoutY="112.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo125" layoutX="200.0" layoutY="111.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="marcador115" layoutX="105.0" layoutY="23.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador29" layoutX="184.0" layoutY="23.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador35" layoutX="105.0" layoutY="41.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador45" layoutX="184.0" layoutY="41.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador55" layoutX="105.0" layoutY="59.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador65" layoutX="184.0" layoutY="59.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador75" layoutX="105.0" layoutY="77.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador85" layoutX="183.0" layoutY="76.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador95" layoutX="105.0" layoutY="94.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador105" layoutX="184.0" layoutY="94.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador115" layoutX="105.0" layoutY="113.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador125" layoutX="184.0" layoutY="112.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Separator layoutX="38.0" layoutY="40.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="38.0" layoutY="58.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="38.0" layoutY="94.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="38.0" layoutY="111.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="38.0" layoutY="76.0" prefHeight="3.0" prefWidth="213.0" />
+                  <TextField fx:id="marcador60" layoutX="128.0" layoutY="22.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador61" layoutX="156.0" layoutY="22.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador62" layoutX="128.0" layoutY="40.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador63" layoutX="156.0" layoutY="40.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador64" layoutX="128.0" layoutY="58.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador65" layoutX="156.0" layoutY="58.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador66" layoutX="128.0" layoutY="76.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador67" layoutX="156.0" layoutY="76.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador68" layoutX="128.0" layoutY="94.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador69" layoutX="156.0" layoutY="94.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador660" layoutX="128.0" layoutY="112.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador661" layoutX="156.0" layoutY="112.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+            <Pane fx:id="cuadro7" layoutX="33.0" layoutY="500.0" prefHeight="147.0" prefWidth="308.0" style="-fx-border-color: gray;">
+               <children>
+                  <Label fx:id="grupo7" layoutX="126.0" layoutY="6.0" prefHeight="17.0" prefWidth="56.0" text="Grupo7" />
+                  <Label fx:id="equipo18" layoutX="40.0" layoutY="26.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo26" layoutX="200.0" layoutY="25.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo36" layoutX="40.0" layoutY="44.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo46" layoutX="201.0" layoutY="44.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo56" layoutX="40.0" layoutY="62.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo66" layoutX="201.0" layoutY="62.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo76" layoutX="41.0" layoutY="80.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo86" layoutX="200.0" layoutY="79.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo96" layoutX="39.0" layoutY="97.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo106" layoutX="201.0" layoutY="97.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo116" layoutX="39.0" layoutY="115.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo126" layoutX="200.0" layoutY="114.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="marcador116" layoutX="105.0" layoutY="26.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador210" layoutX="184.0" layoutY="26.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador36" layoutX="105.0" layoutY="44.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador46" layoutX="184.0" layoutY="44.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador56" layoutX="105.0" layoutY="62.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador66" layoutX="184.0" layoutY="62.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador76" layoutX="105.0" layoutY="80.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador86" layoutX="183.0" layoutY="79.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador96" layoutX="105.0" layoutY="97.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador106" layoutX="184.0" layoutY="97.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador116" layoutX="105.0" layoutY="116.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador126" layoutX="184.0" layoutY="115.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Separator layoutX="38.0" layoutY="43.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="38.0" layoutY="61.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="38.0" layoutY="97.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="38.0" layoutY="114.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="38.0" layoutY="79.0" prefHeight="3.0" prefWidth="213.0" />
+                  <TextField fx:id="marcador70" layoutX="128.0" layoutY="25.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador71" layoutX="156.0" layoutY="25.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador72" layoutX="128.0" layoutY="43.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador73" layoutX="156.0" layoutY="43.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador74" layoutX="128.0" layoutY="61.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador75" layoutX="156.0" layoutY="61.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador76" layoutX="128.0" layoutY="79.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador77" layoutX="156.0" layoutY="79.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador78" layoutX="128.0" layoutY="97.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador79" layoutX="156.0" layoutY="97.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador770" layoutX="128.0" layoutY="115.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador771" layoutX="156.0" layoutY="115.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+            <Pane fx:id="cuadro8" layoutX="375.0" layoutY="500.0" prefHeight="147.0" prefWidth="308.0" style="-fx-border-color: gray;">
+               <children>
+                  <Label fx:id="grupo8" layoutX="126.0" layoutY="6.0" prefHeight="17.0" prefWidth="56.0" text="Grupo8" />
+                  <Label fx:id="equipo19" layoutX="47.0" layoutY="26.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo27" layoutX="207.0" layoutY="25.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo37" layoutX="47.0" layoutY="44.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo47" layoutX="208.0" layoutY="44.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo57" layoutX="47.0" layoutY="62.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo67" layoutX="208.0" layoutY="62.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo77" layoutX="48.0" layoutY="80.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo87" layoutX="207.0" layoutY="79.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo97" layoutX="46.0" layoutY="97.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo107" layoutX="208.0" layoutY="97.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo117" layoutX="46.0" layoutY="115.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo127" layoutX="207.0" layoutY="114.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="marcador117" layoutX="112.0" layoutY="26.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador217" layoutX="191.0" layoutY="26.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador37" layoutX="112.0" layoutY="44.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador47" layoutX="191.0" layoutY="44.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador57" layoutX="112.0" layoutY="62.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador67" layoutX="191.0" layoutY="62.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador77" layoutX="112.0" layoutY="80.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador87" layoutX="190.0" layoutY="79.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador97" layoutX="112.0" layoutY="97.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador107" layoutX="191.0" layoutY="97.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador117" layoutX="112.0" layoutY="116.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador127" layoutX="191.0" layoutY="115.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Separator layoutX="45.0" layoutY="43.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="45.0" layoutY="61.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="45.0" layoutY="97.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="45.0" layoutY="114.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="45.0" layoutY="79.0" prefHeight="3.0" prefWidth="213.0" />
+                  <TextField fx:id="marcador80" layoutX="135.0" layoutY="25.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador81" layoutX="163.0" layoutY="25.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador82" layoutX="135.0" layoutY="43.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador83" layoutX="163.0" layoutY="43.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador84" layoutX="135.0" layoutY="61.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador85" layoutX="163.0" layoutY="61.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador86" layoutX="135.0" layoutY="79.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador87" layoutX="163.0" layoutY="79.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador88" layoutX="135.0" layoutY="97.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador89" layoutX="163.0" layoutY="97.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador880" layoutX="135.0" layoutY="115.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador881" layoutX="163.0" layoutY="115.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+            <Pane fx:id="cuadro1" layoutX="33.0" layoutY="29.0" prefHeight="147.0" prefWidth="308.0" style="-fx-border-color: gray;">
+               <children>
+                  <Label fx:id="grupo1" layoutX="126.0" layoutY="5.0" prefHeight="17.0" prefWidth="56.0" text="Grupo1" />
+                  <Label fx:id="equipo1" layoutX="36.0" layoutY="35.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo2" layoutX="196.0" layoutY="34.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo3" layoutX="36.0" layoutY="53.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo4" layoutX="197.0" layoutY="53.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo5" layoutX="36.0" layoutY="71.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo6" layoutX="197.0" layoutY="71.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo7" layoutX="37.0" layoutY="89.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo8" layoutX="196.0" layoutY="88.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo9" layoutX="35.0" layoutY="106.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo10" layoutX="197.0" layoutY="106.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo11" layoutX="35.0" layoutY="124.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="equipo12" layoutX="196.0" layoutY="123.0" prefHeight="17.0" prefWidth="56.0" text="equipo" />
+                  <Label fx:id="marcador1" layoutX="101.0" layoutY="35.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador2" layoutX="180.0" layoutY="35.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador3" layoutX="101.0" layoutY="53.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador4" layoutX="180.0" layoutY="53.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador5" layoutX="101.0" layoutY="71.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador6" layoutX="180.0" layoutY="71.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador7" layoutX="101.0" layoutY="89.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador8" layoutX="179.0" layoutY="88.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador9" layoutX="101.0" layoutY="106.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador10" layoutX="180.0" layoutY="106.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador11" layoutX="101.0" layoutY="125.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Label fx:id="marcador12" layoutX="180.0" layoutY="124.0" prefHeight="17.0" prefWidth="14.0" text="0" />
+                  <Separator layoutX="34.0" layoutY="52.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="34.0" layoutY="70.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="34.0" layoutY="106.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="34.0" layoutY="123.0" prefHeight="3.0" prefWidth="213.0" />
+                  <Separator layoutX="34.0" layoutY="88.0" prefHeight="3.0" prefWidth="213.0" />
+                  <TextField fx:id="marcador10" layoutX="124.0" layoutY="34.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador11" layoutX="152.0" layoutY="34.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador12" layoutX="124.0" layoutY="52.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador13" layoutX="152.0" layoutY="52.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador14" layoutX="124.0" layoutY="70.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador16" layoutX="152.0" layoutY="70.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador17" layoutX="124.0" layoutY="88.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador17" layoutX="152.0" layoutY="88.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador18" layoutX="124.0" layoutY="106.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador19" layoutX="152.0" layoutY="106.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador110" layoutX="124.0" layoutY="124.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="marcador111" layoutX="152.0" layoutY="124.0" prefHeight="7.0" prefWidth="18.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="718.0" prefHeight="638.0" prefWidth="256.0">
+         <children>
+            <TableView fx:id="tabla" layoutX="5.0" layoutY="14.0" prefHeight="537.0" prefWidth="245.0">
+              <columns>
+                <TableColumn fx:id="listanombre" prefWidth="113.0" text="Jugador" />
+                <TableColumn fx:id="listapuntos" prefWidth="86.0" text="Puntos" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnActualizar" layoutX="8.0" layoutY="561.0" mnemonicParsing="false" onAction="#recargaLista" prefHeight="25.0" prefWidth="120.0" text="Actualizar" />
+            <Button fx:id="btnRegresar" layoutX="131.0" layoutY="561.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Regresar" />
+            <Button fx:id="btnJugar" layoutX="8.0" layoutY="599.0" mnemonicParsing="false" onAction="#guardar" prefHeight="25.0" prefWidth="245.0" text="Jugar" />
+         </children>
+      </Pane>
+      <Separator layoutX="705.0" layoutY="14.0" orientation="VERTICAL" prefHeight="537.0" prefWidth="6.0" />
+   </children>
+</AnchorPane>
