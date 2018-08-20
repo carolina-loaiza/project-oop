@@ -72,6 +72,19 @@ public class Usuario {
         puntos = 0;
     }
 
+    public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, int puntos, String userName, String clave, int tipoUsuario) {
+        this.codigoUsuario = codigoUsuario;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.puntos = puntos;
+        this.userName = userName;
+        this.clave = clave;
+        this.tipoUsuario = tipoUsuario;
+    }
+    
+    
+
     public String getNombre() {
         return nombre;
     }

@@ -62,6 +62,7 @@ public class InicioController implements Initializable {
             pass = txtPass.getText();
 
             if (gUsuario.inicioSesion(usuario, pass)) {
+                String[] usuarioS = gUsuario.getSesion();
                 int index = gUsuario.getSesion().length;
                 int roll = Integer.parseInt(gUsuario.getSesion()[index - 1]);
                 if (roll == 1) {

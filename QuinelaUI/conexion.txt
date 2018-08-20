@@ -2,4 +2,4 @@
 driveConection:
 com.mysql.jdbc.Driver
 url:
-jdbc:mysql://localhost:8889/quinela?user=root&password=root
+jdbc:mysql://localhost:8889/quineladb?user=root&password=root

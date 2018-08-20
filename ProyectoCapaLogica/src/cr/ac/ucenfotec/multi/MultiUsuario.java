@@ -135,7 +135,7 @@ public class MultiUsuario {
         Equipo equipo = null;
         ResultSet rs;
         String sql;
-        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave "
+        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, tipoUsuario "
                 + "FROM Usuarios u "
                 + "WHERE userName ='" + userName + "' AND clave='" + clave + "';";
         rs = Conector.getConector().ejecutarSQL(sql, true);
@@ -148,9 +148,10 @@ public class MultiUsuario {
                         rs.getString("nombre"),
                         rs.getString("apellidos"),
                         rs.getString("correo"),
+                        rs.getInt("puntos"),
                         rs.getString("UserName"),
-                        rs.getString("clave"));
-                
+                        rs.getString("clave"),
+                        rs.getInt("tipoUsuario"));
                 if (fav!=0) {
                     sql = "SELECT codigoEquipo, codigoPais, nombrePais, ranking "
                             + "FROM Equipos "

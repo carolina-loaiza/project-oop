@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class CapaLogica {
 
-    String[] usuarioSesion = new String[12];
+    static String[] usuarioSesion = new String[12];
 
     public CapaLogica() {
 
@@ -30,6 +30,10 @@ public class CapaLogica {
 
     public String[] getSesion() {
         return usuarioSesion;
+    }
+    
+    public void cerrarSesion(){
+        usuarioSesion=new String[12];
     }
 
     public boolean registrarUsuario(Usuario nuevo) throws IOException {
