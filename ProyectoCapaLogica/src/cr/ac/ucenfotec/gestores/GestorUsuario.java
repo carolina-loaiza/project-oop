@@ -8,8 +8,10 @@ package cr.ac.ucenfotec.gestores;
 import cr.ac.ucenfotec.capalogica.CapaLogica;
 import cr.ac.ucenfotec.capalogica.Equipo;
 import cr.ac.ucenfotec.capalogica.Usuario;
+import cr.ac.ucenfotec.multi.MultiEquipo;
 import cr.ac.ucenfotec.multi.MultiUsuario;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  *
@@ -22,21 +24,16 @@ public class GestorUsuario {
     public GestorUsuario() {
     }
 
-    public boolean registrarUsuario(String nombre, String apellidos, String correo, String favorito, String UserName, String clave) throws IOException {
 
-        Usuario nuevo = new Usuario();
-
-        return cl.registrarUsuario(nuevo);
-    }
-
-    public boolean usuarioAgregar(String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) throws Exception {
+    public boolean usuarioAgregar(String nombre, String apellidos, String correo, String favorito, String UserName, String clave) throws Exception {
         Usuario nuevoUsuario;
+        Equipo nuevoEquipo;      
         boolean hecho = false;
         nuevoUsuario = (new MultiUsuario()).buscarByCorreo(correo);
-
+        nuevoEquipo = (new GestorEquipo()).buscarPais(favorito);
         if (nuevoUsuario == null) {
             hecho = true;
-            nuevoUsuario = (new MultiUsuario()).crear( nombre, apellidos, correo, favorito, UserName, clave);
+            nuevoUsuario = (new MultiUsuario()).crear( nombre, apellidos, correo, nuevoEquipo, UserName, clave);
         }
         
         return hecho;
@@ -47,7 +44,7 @@ public class GestorUsuario {
         return cl.listarUsuarios();
     }
 
-    public boolean inicioSesion(String usuario, String pass) throws IOException, Exception {
+    public boolean inicioSesion(String usuario, String pass) throws SQLException, Exception {
         boolean iniciada = false;
         Usuario nuevo = (new MultiUsuario()).login(usuario, pass);
         if (nuevo != null) {
@@ -63,14 +60,15 @@ public class GestorUsuario {
         return cl.getSesion();
     }
 
-    public boolean existeUsuario(String correo) throws IOException {
+    public boolean existeUsuario(String correo) throws SQLException, Exception {
 
-        return cl.existeUsuario(correo);
+        return (new MultiUsuario()).existeByCorreo(correo);
     }
 
-    public boolean existeUName(String correo) throws IOException {
+    public boolean existeUName(String correo) throws SQLException, Exception {
 
-        return cl.existeNombreUsuario(correo);
+
+        return (new MultiUsuario()).existeByUserName(correo);
     }
 
 }

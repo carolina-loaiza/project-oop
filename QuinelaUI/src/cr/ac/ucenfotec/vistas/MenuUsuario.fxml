@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="MenuUsuario" fx:id="menuUsuario" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="cr.ac.ucenfotec.controlador.MenuUsuarioController">
+<AnchorPane id="MenuUsuario" fx:id="menuUsuario" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.ucenfotec.controlador.MenuUsuarioController">
    <children>
       <Pane layoutX="488.0" layoutY="14.0" prefHeight="101.0" prefWidth="98.0" style="-fx-border-color: gray; -fx-border-radius: 70;">
          <children>
@@ -20,7 +20,7 @@
             <Image url="@../imagen/cancha.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="menuUsuario" layoutX="14.0" layoutY="10.0" prefHeight="200.0" prefWidth="466.0">
+      <Pane fx:id="menu" layoutX="14.0" layoutY="10.0" prefHeight="200.0" prefWidth="466.0">
          <children>
             <Pane fx:id="ligasPublicas" layoutX="14.0" layoutY="52.0" onDragDetected="#ligasPublicas" prefHeight="116.0" prefWidth="116.0" style="-fx-border-color: blue; -fx-border-radius: 90;">
                <children>

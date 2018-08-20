@@ -24,7 +24,7 @@ public class GestorMundial {
     public GestorMundial() {
     }
     
-    public static boolean registrarMundial(int year, String pais, int estado) throws Exception {
+    public boolean registrarMundial(int year, String pais, int estado) throws Exception {
         System.out.println("---------- Gestor registrarMundial "+year+ " "+ pais + " "+ estado+"----------");
         Mundial nuevoMundial;
         

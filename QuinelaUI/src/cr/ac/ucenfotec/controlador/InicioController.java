@@ -111,6 +111,8 @@ public class InicioController implements Initializable {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        Stage stg = (Stage) lnkRegistro.getScene().getWindow();
+                    stg.hide();
         stage.showAndWait();
     }
 

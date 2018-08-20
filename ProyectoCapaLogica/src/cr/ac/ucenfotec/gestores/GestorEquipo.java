@@ -18,7 +18,9 @@ import javafx.collections.ObservableList;
  */
 public class GestorEquipo {
 
-    CapaLogica cl = new CapaLogica();
+
+
+
 
     public GestorEquipo() {
 
@@ -38,7 +40,7 @@ public class GestorEquipo {
         }
     }
 
-    public static Equipo buscarPais(String nombrePais) throws Exception {
+    public  Equipo buscarPais(String nombrePais) throws Exception {
         try {
             return (new MultiEquipo().buscarByPais(nombrePais));  
         } catch (Exception e) {

@@ -155,7 +155,7 @@ public class RegistroUsuarioController implements Initializable {
     }
 
     @FXML
-    void registroUsuario(ActionEvent event) throws IOException {
+    void registroUsuario(ActionEvent event) throws IOException, Exception {
         String nombre;
         String user;
         String apellido;
@@ -199,29 +199,27 @@ public class RegistroUsuarioController implements Initializable {
                         if (controladorU.existeUName(user)) {
                             System.out.println("el nombre de usuario ya existe, intente uno diferente");
                         } else {
-                            controladorU.registrarUsuario(nombre, apellido, correo, equipo, user, contrasenna);
+                            controladorU.usuarioAgregar(nombre, apellido, correo, equipo, user, contrasenna);
+                            Parent root = null;
+                            Parent x = null;
+                            try {
+                                root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/Inicio.fxml"));
+                                x = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/RegistroUsuario.fxml"));
+                            } catch (IOException ex) {
+                            }
+
+                            Scene scene = new Scene(root);
+                            Stage stage = new Stage();
+                            stage.setScene(scene);
+                            Stage stg = (Stage) btnRegistrar.getScene().getWindow();
+                            stg.hide();
+                            stage.showAndWait();
+
                         }
                     }
                 }
             }
 
-            Parent root = null;
-            Parent x = null;
-            try {
-                root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/Inicio.fxml"));
-                x = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/RegistroUsuario.fxml"));
-            } catch (IOException ex) {
-            }
-
-            Scene esta = new Scene(x);
-            Stage una = new Stage();
-            una.setScene(esta);
-
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            una.close();
-            stage.showAndWait();
         }
     }
 
@@ -248,16 +246,12 @@ public class RegistroUsuarioController implements Initializable {
         String[] equipos = null;
         String[] uno = null;
         ObservableList<String> options = null;
-        
-        
+
         Rectangle rectangulo = new Rectangle(imgFoto.getFitWidth(), imgFoto.getFitHeight());
-		rectangulo.setArcWidth(imgFoto.getFitWidth());
-		rectangulo.setArcHeight(imgFoto.getFitHeight());
-		imgFoto.setClip(rectangulo);
-        
-        
-        
-        
+        rectangulo.setArcWidth(imgFoto.getFitWidth());
+        rectangulo.setArcHeight(imgFoto.getFitHeight());
+        imgFoto.setClip(rectangulo);
+
         try {
             options = FXCollections.observableArrayList(controladorE.listaNombre());
         } catch (Exception ex) {
