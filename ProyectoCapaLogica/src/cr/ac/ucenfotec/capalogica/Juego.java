@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Juego {
     
+    private int codigoMundial;
     private int codigoJuego;
     private Equipo primero;
     private Equipo segundo;

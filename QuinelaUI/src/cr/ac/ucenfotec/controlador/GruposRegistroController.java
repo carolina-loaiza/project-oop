@@ -5,9 +5,7 @@
  */
 package cr.ac.ucenfotec.controlador;
 
-import cr.ac.ucenfotec.gestores.GestorEquipo;
-import cr.ac.ucenfotec.gestores.GestorGrupo;
-import cr.ac.ucenfotec.gestores.GestorMundial;
+import cr.ac.ucenfotec.gestores.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.io.IOException;
@@ -70,7 +68,9 @@ public class GruposRegistroController implements Initializable {
     GestorMundial gMundial = new GestorMundial();
     GestorEquipo gEquipo = new GestorEquipo();
     GestorGrupo gGrupo = new GestorGrupo();
+    GestorJuegos gJuegos = new GestorJuegos();
     ArrayList<String> listaEquipos = new ArrayList<>();
+    ArrayList<String[]> listaEquiposGrupo;
     
     
     @FXML
@@ -99,15 +99,20 @@ public class GruposRegistroController implements Initializable {
             
             if (gGrupo.registrarGrupo(mundial, nombre, equipo1, equipo2, equipo3, equipo4) ) {
                 Alert d = new Alert(Alert.AlertType.CONFIRMATION);
-                d.setContentText("registro realizado");
+                d.setContentText("Registro realizado.");
                 d.showAndWait();
 
                 Parent root = null;
                 try {
+                    listaEquiposGrupo = (gGrupo.listaEquipos());
                     sltMundial.getItems().clear();
                     txtNombre.setText(null);
                     setListaEquipos(null, true);
-                    //root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/GruposRegistro.fxml"));
+                    System.out.println(listaEquiposGrupo.size());
+                    if (listaEquiposGrupo.size() == 8) {
+                        crearPartidos(mundial, listaEquiposGrupo);
+                        //root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/CrearPartidos.fxml"));
+                    }
                 } catch (Exception ex) {
                     System.out.println("---------- "+ex.getMessage()+" ----------");
                 }
@@ -118,7 +123,7 @@ public class GruposRegistroController implements Initializable {
 
             } else {
                 Alert d = new Alert(Alert.AlertType.ERROR);
-                d.setContentText("el mundial ya se encuentra registrado");
+                d.setContentText("El grupo ya se encuentra registrado.");
                 d.showAndWait();
             }
         }
@@ -129,23 +134,35 @@ public class GruposRegistroController implements Initializable {
 
     }
     
+    public void crearPartidos(int mundial, ArrayList<String[]> listaEquiposGrupo) {
+        try {
+            gJuegos.crearPartidos(mundial, listaEquiposGrupo);
+        } catch (Exception e) {
+            System.out.println("---------- crearPartidos "+e.getMessage()+" ----------");
+        }
+    }
+    
     public void setListaEquipos (ChoiceBox selectedChoiceBox, boolean reset) {
         ArrayList<ChoiceBox> listaChoiceBox = new ArrayList<ChoiceBox>(Arrays.asList(sltEquipo1, sltEquipo2, sltEquipo3, sltEquipo4));
         
         for (ChoiceBox temChoiceBox : listaChoiceBox) {
             
-            if (selectedChoiceBox != temChoiceBox && temChoiceBox.getValue() == null) {
+            if ((selectedChoiceBox != temChoiceBox && temChoiceBox.getValue() == null) || reset)  {
                 temChoiceBox.getItems().clear();
                 for (String temp : listaEquipos) {
-                    //System.out.println(temp);
                    temChoiceBox.getItems().add(temp);
                 }
             }
-            
-            if (reset) {
-                temChoiceBox.setValue("");
+        }
+    }
+    
+    public void removerEquipos() {
+        for (String[] equipos : listaEquiposGrupo) {
+            for (String equipo : equipos) {
+                if (listaEquipos.contains(equipo)) {
+                    listaEquipos.remove(equipo);
+                }
             }
-          
         }
     }
     
@@ -157,8 +174,8 @@ public class GruposRegistroController implements Initializable {
                 @Override
                 public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
                     String nombreEquipo = temChoiceBox.getItems().get((Integer) number2).toString();
-                    System.out.println(nombreEquipo);
                     listaEquipos.remove(nombreEquipo);
+                    System.out.println(nombreEquipo);
                     setListaEquipos(temChoiceBox, false);
                 }
             });
@@ -194,15 +211,15 @@ public class GruposRegistroController implements Initializable {
         try {
             listaMundial = (gMundial.listarMundiales());
             listaEquipos = (gEquipo.listaNombre());
-            
+            listaEquiposGrupo = (gGrupo.listaEquipos());
             
             for (int temp : listaMundial) {
                 sltMundial.getItems().add(temp);
             }
             
+            removerEquipos();
             setListaEquipos(null, false);
             setChoiceBoxEquipos();
-            System.out.println(gGrupo.listaEquipos().toString());
         } catch (Exception e) {
             System.out.println("---------- initialize listaMundial "+e.getMessage()+" ----------");
         };   

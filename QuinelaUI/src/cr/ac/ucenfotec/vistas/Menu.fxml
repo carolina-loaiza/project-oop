@@ -35,7 +35,6 @@
                   <Menu mnemonicParsing="false" text="Grupos">
                     <items>
                         <MenuItem fx:id="registrGrupos" mnemonicParsing="false" onAction="#registrarGrupo" text="Registrar Grupos" />
-                      <MenuItem fx:id="listaMundial" mnemonicParsing="false" onAction="#listarMundiales" text="Listar Mundiales" />
                     </items>
                   </Menu>
                   <MenuItem fx:id="rankingFifa" mnemonicParsing="false" onAction="#mostrarRanking" text="Ranking Fifa" />

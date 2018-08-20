@@ -32,18 +32,18 @@ public class GestorGrupo {
             System.out.println("---------- registrarMundial existe ----------");
             return false;
         } else {
-            try {
-                (new MultiGrupo()).crear(codigoMundial, nombre, equipo1, equipo2, equipo3, equipo4);
-            } catch (Exception e) {
-                System.out.println("---------- "+e.getMessage()+" ----------");
-                return false;
-            }
+        try {
+            (new MultiGrupo()).crear(codigoMundial, nombre, equipo1, equipo2, equipo3, equipo4);
+        } catch (Exception e) {
+            System.out.println("---------- "+e.getMessage()+" ----------");
+            return false;
+        }
             
             return true;
         }
     }
     
-    public ArrayList<String[]> listaEquipos() throws IOException, Exception {
+    public static ArrayList<String[]> listaEquipos() throws IOException, Exception {
         ArrayList<String[]> lista = new ArrayList<>();
         
         try {
@@ -52,7 +52,7 @@ public class GestorGrupo {
             for (Grupo tempGrupo : grupos) {
                 String[] tempLista = new String[4];
                 for (int i = 0; i < 4;) {
-                    tempLista[1] = tempGrupo.getEquipos().get(i).getNombrePais();
+                    tempLista[i] = tempGrupo.getEquipos().get(i).getNombrePais();
                     i++;
                 }
                 
