@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" fx:id="registroUsuario" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../estilo/registrousuario.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.ucenfotec.controlador.RegistroUsuarioController">
+   <children>
+      <Pane layoutX="175.0" layoutY="16.0" prefHeight="369.0" prefWidth="411.0">
+         <children>
+            <Label layoutX="201.0" layoutY="14.0" text="Registro Usuario" />
+            <Label layoutX="91.0" layoutY="101.0" text="Nombre" />
+            <Label layoutX="91.0" layoutY="159.0" text="Segundo Apellido" />
+            <Label layoutX="91.0" layoutY="217.0" text="Contraseña" />
+            <Label layoutX="91.0" layoutY="271.0" text="Nombre de Usuario" />
+            <Label layoutX="250.0" layoutY="101.0" text="Primer Apellido" />
+            <Label layoutX="250.0" layoutY="159.0" text="Correo" />
+            <Label layoutX="250.0" layoutY="217.0" text="Confirmación Contraseña" />
+            <Label layoutX="250.0" layoutY="271.0" text="Equipo Favorito" />
+            <Pane layoutX="329.0" layoutY="31.0" prefHeight="68.0" prefWidth="68.0" style="-fx-border-color: gray; -fx-border-radius: 90;">
+               <children>
+                  <ImageView fx:id="imgFoto" fitHeight="59.0" fitWidth="60.0" layoutX="4.0" layoutY="5.0" onDragDropped="#imgFotoDragDropped" onDragOver="#imgFotoDragOver" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+            <TextField fx:id="txtNombre" layoutX="91.0" layoutY="118.0" />
+            <TextField fx:id="txtApellido" layoutX="250.0" layoutY="118.0" />
+            <TextField fx:id="txtApellido2" layoutX="91.0" layoutY="176.0" />
+            <TextField fx:id="txtCorreo" layoutX="250.0" layoutY="176.0" />
+            <PasswordField fx:id="txtPass" layoutX="91.0" layoutY="234.0" />
+            <PasswordField fx:id="txtConfirma" layoutX="250.0" layoutY="234.0" />
+            <TextField fx:id="txtUName" layoutX="91.0" layoutY="288.0" />
+            <ComboBox fx:id="sltEquipo" layoutX="249.0" layoutY="288.0" prefWidth="150.0" />
+            <Button fx:id="btnRegistrar" layoutX="91.0" layoutY="332.0" mnemonicParsing="false" onAction="#registroUsuario" prefHeight="25.0" prefWidth="308.0" text="Registrar" />
+            <Label layoutX="294.0" layoutY="57.0" text="Foto" />
+         </children>
+      </Pane>
+      <Separator layoutX="165.0" layoutY="14.0" orientation="VERTICAL" prefHeight="369.0" prefWidth="13.0" />
+      <Pane layoutX="14.0" layoutY="16.0" prefHeight="369.0" prefWidth="149.0">
+         <children>
+            <ImageView fitHeight="384.0" fitWidth="181.0" layoutX="1.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagen/copa.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

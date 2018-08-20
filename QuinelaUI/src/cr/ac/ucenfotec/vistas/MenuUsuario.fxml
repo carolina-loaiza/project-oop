@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="MenuUsuario" fx:id="menuUsuario" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cr.ac.ucenfotec.controlador.MenuUsuarioController">
+   <children>
+      <Pane layoutX="488.0" layoutY="14.0" prefHeight="101.0" prefWidth="98.0" style="-fx-border-color: gray; -fx-border-radius: 70;">
+         <children>
+            <ImageView fx:id="picUsuario" fitHeight="101.0" fitWidth="98.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Label fx:id="txtUserName" alignment="CENTER" contentDisplay="CENTER" layoutX="499.0" layoutY="123.0" prefHeight="31.0" prefWidth="77.0" text="UserName" />
+      <ImageView fitHeight="165.0" fitWidth="512.0" layoutX="14.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagen/cancha.jpg" />
+         </image>
+      </ImageView>
+      <Pane fx:id="menu" layoutX="14.0" layoutY="10.0" prefHeight="200.0" prefWidth="466.0">
+         <children>
+            <Pane fx:id="ligasPublicas" layoutX="14.0" layoutY="52.0" onDragDetected="#ligasPublicas" prefHeight="116.0" prefWidth="116.0" style="-fx-border-color: blue; -fx-border-radius: 90;">
+               <children>
+                  <Label layoutX="19.0" layoutY="50.0" text="Ligas Publicas" textFill="#1a00ff">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane fx:id="ligasPrivadas" layoutX="175.0" layoutY="52.0" onDragDetected="#ligasPrivadas" prefHeight="116.0" prefWidth="116.0" style="-fx-border-color: green; -fx-border-radius: 90;">
+               <children>
+                  <Label layoutX="21.0" layoutY="50.0" text="Ligas Privadas" textFill="#008a12">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane fx:id="cerrarSesion" layoutX="336.0" layoutY="52.0" onMouseClicked="#cerrarSesion" prefHeight="116.0" prefWidth="116.0" style="-fx-border-color: red; -fx-border-radius: 90;">
+               <children>
+                  <Label layoutX="21.0" layoutY="50.0" text="Cerrar Sesión" textFill="#ff1f0b">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+         </children>
+      </Pane>
+      <Label fx:id="txtPuntaje" alignment="CENTER" layoutX="499.0" layoutY="154.0" prefHeight="17.0" prefWidth="77.0" text="Puntaje" />
+   </children>
+</AnchorPane>
