@@ -14,7 +14,7 @@ import java.util.Iterator;
 
 /**
  *
- * @author jeffry
+ * @author Carolina
  */
 public class GestorGrupo {
     
@@ -65,12 +65,5 @@ public class GestorGrupo {
             throw e;
         }
     }
-    
-    
-    
-    public String[] listarGrupo() throws IOException{
-    
-        return cl.listarGrupos();
-    }
-    
+   
 }

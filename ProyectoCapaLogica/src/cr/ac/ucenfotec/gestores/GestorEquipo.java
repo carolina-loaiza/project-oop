@@ -14,7 +14,7 @@ import javafx.collections.ObservableList;
 
 /**
  *
- * @author jeffry
+ * @author Carolina
  */
 public class GestorEquipo {
 
