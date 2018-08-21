@@ -95,6 +95,8 @@ public class MenuController implements Initializable {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        Stage stg = (Stage) menu.getScene().getWindow();
+                    stg.hide();
         stage.showAndWait();
 
     }
@@ -148,6 +150,8 @@ public class MenuController implements Initializable {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        Stage stg = (Stage) menu.getScene().getWindow();
+                    stg.hide();
         stage.showAndWait();
 
     }
@@ -163,6 +167,8 @@ public class MenuController implements Initializable {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        Stage stg = (Stage) menu.getScene().getWindow();
+                    stg.hide();
         stage.showAndWait();
 
     }
@@ -178,12 +184,17 @@ public class MenuController implements Initializable {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        Stage stg = (Stage) menu.getScene().getWindow();
+                    stg.hide();
         stage.showAndWait();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        String[] sesion= (new CapaLogica()).getSesion();
+        txtUserName.setText(sesion[11]);
+        txtPuntaje.setText(sesion[4]);
     }
 
 }
