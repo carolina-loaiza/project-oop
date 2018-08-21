@@ -62,6 +62,7 @@ public class InicioController implements Initializable {
             pass = txtPass.getText();
 
             if (gUsuario.inicioSesion(usuario, pass)) {
+                String[] usuarioS = gUsuario.getSesion();
                 int index = gUsuario.getSesion().length;
                 int roll = Integer.parseInt(gUsuario.getSesion()[index - 1]);
                 if (roll == 1) {
@@ -107,11 +108,12 @@ public class InicioController implements Initializable {
         try {
             root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/RegistroUsuario.fxml"));
         } catch (Exception ex) {
-            System.out.println("---------- registrarUsuario "+ex.getMessage()+" ----------");
         }
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
+        Stage stg = (Stage) lnkRegistro.getScene().getWindow();
+                    stg.hide();
         stage.showAndWait();
     }
 

@@ -155,7 +155,7 @@ public class RegistroUsuarioController implements Initializable {
     }
 
     @FXML
-    void registroUsuario(ActionEvent event) throws IOException {
+    void registroUsuario(ActionEvent event) throws IOException, Exception {
         String nombre;
         String user;
         String apellido;
@@ -187,46 +187,39 @@ public class RegistroUsuarioController implements Initializable {
             Matcher mather = pattern.matcher(correo);
 
             if (!mather.find() == true) {
-                System.out.println("El email ingresado es inválido.");
+                alerta("El email ingresado es inválido.", 2);
             } else {
                 if (!contrasenna.equals(confirmacion)) {
-                    System.out.println("los campos de contraseña no coincide con la confirmación.");
+                    alerta("los campos de contraseña no coincide con la confirmación.",2);
                 } else {
                     if (controladorU.existeUsuario(correo)) {
-                        System.out.println("ya existe un usuario con esta cuenta de correo, intente con una diferente");
+                        alerta("ya existe un usuario con esta cuenta de correo, intente con una diferente",2);
 
                     } else {
                         if (controladorU.existeUName(user)) {
-                            System.out.println("el nombre de usuario ya existe, intente uno diferente");
+                            alerta("el nombre de usuario ya existe, intente uno diferente",2);
                         } else {
-                            if (sltEquipo == null || sltEquipo.equals("")) {
-
-                            } else {
-
-                                controladorU.registrarUsuario(nombre, apellido, correo, equipo, user, contrasenna);
+                            controladorU.usuarioAgregar(nombre, apellido, correo, equipo, user, contrasenna);
+                            Parent root = null;
+                            Parent x = null;
+                            try {
+                                root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/Inicio.fxml"));
+                                x = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/RegistroUsuario.fxml"));
+                            } catch (IOException ex) {
                             }
+
+                            Scene scene = new Scene(root);
+                            Stage stage = new Stage();
+                            stage.setScene(scene);
+                            Stage stg = (Stage) btnRegistrar.getScene().getWindow();
+                            stg.hide();
+                            stage.showAndWait();
+
                         }
                     }
                 }
             }
 
-            Parent root = null;
-            Parent x = null;
-            try {
-                root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/Inicio.fxml"));
-                x = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/RegistroUsuario.fxml"));
-            } catch (IOException ex) {
-            }
-
-            Scene esta = new Scene(x);
-            Stage una = new Stage();
-            una.setScene(esta);
-
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            una.close();
-            stage.showAndWait();
         }
     }
 
@@ -268,23 +261,32 @@ public class RegistroUsuarioController implements Initializable {
 
     }
 
-    public void mensaje(int tipo, String mensaje) {
-
+    private void alerta(String mensaje, int tipo) {
         switch (tipo) {
             case 1:
-                Alert a = new Alert(Alert.AlertType.WARNING);
-                a.setContentText(mensaje);
-                a.showAndWait();
+                Alert d = new Alert(Alert.AlertType.CONFIRMATION);
+                d.setContentText(mensaje);
+                d.show();
                 break;
             case 2:
-                Alert b = new Alert(Alert.AlertType.ERROR);
-                b.setContentText(mensaje);
-                b.showAndWait();
+                d = new Alert(Alert.AlertType.ERROR);
+                d.setContentText(mensaje);
+                d.show();
                 break;
             case 3:
-                Alert c = new Alert(Alert.AlertType.INFORMATION);
-                c.setContentText(mensaje);
-                c.showAndWait();
+                d = new Alert(Alert.AlertType.INFORMATION);
+                d.setContentText(mensaje);
+                d.show();
+                break;
+            case 4:
+                d = new Alert(Alert.AlertType.NONE);
+                d.setContentText(mensaje);
+                d.show();
+                break;
+                case 5:
+                d = new Alert(Alert.AlertType.WARNING);
+                d.setContentText(mensaje);
+                d.show();
                 break;
         }
     }

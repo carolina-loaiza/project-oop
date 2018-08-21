@@ -5,6 +5,7 @@
  */
 package cr.ac.ucenfotec.controlador;
 
+import cr.ac.ucenfotec.capalogica.CapaLogica;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -80,6 +81,21 @@ public class MenuController implements Initializable {
 
     @FXML
     void cerrarSesion(ActionEvent event) {
+        System.out.println("\ncierre de sesion--------------------------\n");
+        Parent root = null;
+        try {
+            (new CapaLogica()).cerrarSesion();
+            String[] sesion=(new CapaLogica()).getSesion();
+            System.out.println(sesion[1]);
+            System.out.println("---------------------------------------\n\n");
+            root = FXMLLoader.load(getClass().getResource("/cr/ac/ucenfotec/vistas/Inicio.fxml"));
+        } catch (Exception ex) {
+            System.out.println("no se ha cerrado sesion");
+        }
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.showAndWait();
 
     }
 

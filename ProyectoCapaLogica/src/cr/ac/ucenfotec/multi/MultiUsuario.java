@@ -15,8 +15,9 @@ import java.sql.ResultSet;
  */
 public class MultiUsuario {
 
-    public static Usuario crear(String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) throws Exception {
+    public Usuario crear(String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) throws Exception {
         Usuario nuevoUsuario = null;
+        boolean registrado = false;
         int rs;
         String sql;
         sql = "INSERT INTO Usuarios (nombre, apellidos, correo, puntos, favorito, userName, clave, tipoUsuario) "
@@ -25,6 +26,7 @@ public class MultiUsuario {
         try {
             rs = Conector.getConector().ejecutarSQL(sql, 0);
             nuevoUsuario = new Usuario(nombre, apellidos, correo, 100, favorito, UserName, clave);
+            
         } catch (Exception e) {
             throw new Exception("El n�mero de identificaci�n ya est� en el sistema.");
         }
@@ -37,7 +39,7 @@ public class MultiUsuario {
         Equipo equipo = null;
         ResultSet rs;
         String sql;
-        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, codigoEquipo, codigoPais, nombrePais, ranking ,tipoUsuario"
+        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, codigoEquipo, codigoPais, nombrePais, ranking ,tipoUsuario "
                 + "FROM Usuarios, Equipos "
                 + "WHERE codigoUsuario='" + codigoUsuario + "'"
                 + "AND favorito = Equipos.codigoEquipo;";
@@ -69,7 +71,7 @@ public class MultiUsuario {
         Equipo equipo = null;
         ResultSet rs;
         String sql;
-        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, codigoEquipo, codigoPais, nombrePais, ranking ,tipoUsuario"
+        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, codigoEquipo, codigoPais, nombrePais, ranking ,tipoUsuario "
                 + "FROM Usuarios, Equipos "
                 + "WHERE correo='" + correo + "'"
                 + "AND favorito = Equipos.codigoEquipo;";
@@ -133,7 +135,7 @@ public class MultiUsuario {
         Equipo equipo = null;
         ResultSet rs;
         String sql;
-        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave "
+        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, tipoUsuario "
                 + "FROM Usuarios u "
                 + "WHERE userName ='" + userName + "' AND clave='" + clave + "';";
         rs = Conector.getConector().ejecutarSQL(sql, true);
@@ -146,9 +148,10 @@ public class MultiUsuario {
                         rs.getString("nombre"),
                         rs.getString("apellidos"),
                         rs.getString("correo"),
+                        rs.getInt("puntos"),
                         rs.getString("UserName"),
-                        rs.getString("clave"));
-                
+                        rs.getString("clave"),
+                        rs.getInt("tipoUsuario"));
                 if (fav!=0) {
                     sql = "SELECT codigoEquipo, codigoPais, nombrePais, ranking "
                             + "FROM Equipos "
@@ -171,4 +174,79 @@ public class MultiUsuario {
 
         return usuario;
     }
+    
+        public Usuario existeByCodigo(int codigoUsuario) throws java.sql.SQLException, Exception {
+        Usuario usuario = null;
+        Equipo equipo = null;
+        ResultSet rs;
+        String sql;
+        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, codigoEquipo, codigoPais, nombrePais, ranking ,tipoUsuario "
+                + "FROM Usuarios, Equipos "
+                + "WHERE codigoUsuario='" + codigoUsuario + "'"
+                + "AND favorito = Equipos.codigoEquipo;";
+        rs = Conector.getConector().ejecutarSQL(sql, true);
+
+        if (rs != null && rs.next()) {
+            usuario = new Usuario(
+                    rs.getInt("codigoUsuario"),
+                    rs.getString("nombre"),
+                    rs.getString("apellidos"),
+                    rs.getString("correo"),
+                    rs.getString("UserName"),
+                    rs.getString("clave"));
+
+            equipo = new Equipo(rs.getInt("codigoEquipo"),
+                    rs.getString("codigoPais"),
+                    rs.getString("nombrePais"),
+                    rs.getInt("ranking"));
+            usuario.setFavorito(equipo);
+
+            rs.close();
+        };
+
+        return usuario;
+    }
+
+    public boolean existeByCorreo(String correo) throws java.sql.SQLException, Exception {
+        Usuario usuario = null;
+        Equipo equipo = null;
+        ResultSet rs;
+        String sql;
+        boolean existe=false;
+        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, codigoEquipo, codigoPais, nombrePais, ranking ,tipoUsuario "
+                + "FROM Usuarios, Equipos "
+                + "WHERE correo='" + correo + "' "
+                + "AND favorito = Equipos.codigoEquipo;";
+        rs = Conector.getConector().ejecutarSQL(sql, true);
+
+        if (rs != null && rs.next()) {
+            existe=true;
+
+            rs.close();
+        };
+
+        return existe;
+    }
+
+    public boolean existeByUserName(String userName) throws java.sql.SQLException, Exception {
+        Usuario usuario = null;
+        Equipo equipo = null;
+        ResultSet rs;
+        String sql;
+        boolean existe=false;
+        sql = "SELECT codigoUsuario, nombre, apellidos, correo, puntos, favorito, userName, clave, codigoEquipo, codigoPais, nombrePais, ranking ,tipoUsuario "
+                + "FROM Usuarios, Equipos "
+                + "WHERE userName='" + userName + "' "
+                + "AND favorito = Equipos.codigoEquipo;";
+        rs = Conector.getConector().ejecutarSQL(sql, true);
+
+        if (rs != null && rs.next()) {
+            existe=true;
+
+            rs.close();
+        }
+
+        return existe;
+    }
+
 }

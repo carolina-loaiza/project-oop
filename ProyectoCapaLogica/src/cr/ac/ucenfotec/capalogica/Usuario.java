@@ -46,7 +46,7 @@ public class Usuario {
         this.correo = correo;
         this.userName = UserName;
         this.clave = clave;
-        puntos = 0;
+        puntos = 100;
     }
 
     public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, Equipo favorito, String UserName, String clave) {
@@ -71,6 +71,19 @@ public class Usuario {
         this.clave = clave;
         puntos = 0;
     }
+
+    public Usuario(int codigoUsuario, String nombre, String apellidos, String correo, int puntos, String userName, String clave, int tipoUsuario) {
+        this.codigoUsuario = codigoUsuario;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.puntos = puntos;
+        this.userName = userName;
+        this.clave = clave;
+        this.tipoUsuario = tipoUsuario;
+    }
+    
+    
 
     public String getNombre() {
         return nombre;
